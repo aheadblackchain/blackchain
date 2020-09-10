@@ -27,7 +27,43 @@
 1.业务层采用@Service
 ## controller
 1. @Controller作用于表现层（spring-mvc的注解)
+2. @GetMapping用于将HTTP get请求映射到特定处理程序的方法注解
+   具体来说，@GetMapping是一个组合注解，是@RequestMapping(method = RequestMethod.GET)的缩写
+3. @RequestMapping
+4. @RequestParam
+    - required 这个参数定义了参数值是否是必须要传的
+    - defaultValue 取值就是用来给取值为空的请求参数提供一个默认值的
+    ```java
+       @RequestMapping(value = "/name")
+        String getName(@RequestParam(value = "person", defaultValue = "John") String personName) {
+            return "Required element of request param";
+        }
+    ```
 ## 其他
 1. @Component是一个通用的Spring容器管理的单例bean组件
+
+# thymeleaf模板
+1. xmlns：th指的是将thymeleaf的命名空间的名字命名为th，这个符号和之后所用的th一致。
+```html
+<html xmlns:th="http://www.thymeleaf.org">
+```
+2. th:text：在th后面加上一个冒号，并附加特定的字符组合，这个thymeleaf定义的占位符是生成thymeleaf页面的基础。之后我们可以看到很多这样的占位符。
+   ${welcome}：${}这个占位符是thymeleaf非常关键的符号之一，用于变量的解析。
+```html
+<p th:text="${welcome}">Welcome to thymeleaf world!</p>
+```
+3. 
+```html
+ <li th:each="product:${products}">
+         <span th:text="${product.id}">编号</span>
+         <span th:text="${product.title}">标题</span>
+         <span th:text="${product.formatedPrice()}">价格</span>
+         <span th:text="${product.discountPercent*100+'%'}">折扣</span>
+     </li>
+```
+4. 
+```html
+<span th:if="${product.discountPercent<=0.9}">热销</span>
+```
 
 
