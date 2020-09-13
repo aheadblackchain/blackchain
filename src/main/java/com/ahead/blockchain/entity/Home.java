@@ -12,22 +12,26 @@ public class Home {
     @javax.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
+
     @Column(nullable = false)
     private String title;
+
     @Column(nullable = false)
     private String particulars;
+
     @Column(name = "create_time")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
+
     @Column(name = "create_user")
     private Integer createUser;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
