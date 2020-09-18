@@ -1,6 +1,7 @@
 package com.ahead.blockchain.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
@@ -16,6 +17,7 @@ public class User {
     private String userName;
 
     @Column(name = "pass_word", nullable = false)
+    @JsonIgnore
     private String passWord;
 
     @Column(name = "real_name")
@@ -27,7 +29,7 @@ public class User {
 
     private String workPost;
 
-    @Column(name = "create_time", nullable = false)
+    @Column(name = "create_time")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private String createTime;
 

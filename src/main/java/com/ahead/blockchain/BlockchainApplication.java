@@ -8,7 +8,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @EnableJpaRepositories(basePackages = {"com.ahead.blockchain.dao"})
-@ComponentScan
 @EntityScan("com.ahead.blockchain.entity")
 public class BlockchainApplication {
 

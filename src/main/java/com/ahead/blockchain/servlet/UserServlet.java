@@ -2,6 +2,7 @@ package com.ahead.blockchain.servlet;
 
 import com.ahead.blockchain.dao.UserDao;
 import com.ahead.blockchain.entity.User;
+import org.hibernate.mapping.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,8 +13,8 @@ public class UserServlet {
     @Autowired
     private UserDao userDao;
 
-    public void insertOrUpdateUser(User user){
-        userDao.save(user);
+    public User insertOrUpdateUser(User user){
+       return userDao.save(user);
     }
 
     public void delUser(Long id){
@@ -21,6 +22,8 @@ public class UserServlet {
     }
 
     public List<User> userList(){
-        return userDao.findAll();
+        return userDao.findAllByOrderByIdDesc();
     }
+
+    public User getUserById(Long id){return userDao.findById(id).orElseGet(() -> new User());}
 }

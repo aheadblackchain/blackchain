@@ -22,8 +22,6 @@
   <link rel="stylesheet" href="back/css/demo.css">
   <script src="back/js/layout-helpers.js"></script>
   <script src="back/js/jquery.min.js"></script>
-  <!-- Libs -->
-  <link rel="stylesheet" href="back/css/datatables.css">
 </head>
 
 <body>
@@ -60,7 +58,7 @@
 
             <ul class="sidenav-menu">
               <li class="sidenav-item">
-                <a href="userlist" class="sidenav-link">
+                <a href="userList" class="sidenav-link">
                   <div>用户列表</div>
                 </a>
               </li>
@@ -106,10 +104,9 @@
 
           <!-- Content -->
           <div class="container-fluid flex-grow-1 container-p-y">
-            <!-- DataTable within card -->
             <div class="card">
               <h6 class="card-header">
-                DataTable within card
+                <button class="btn btn-primary btn-insert"  data-toggle="modal" data-target="#modals-fill-in">新增</button>
               </h6>
               <div class="card-datatable table-responsive">
                 <table class="datatables-demo table table-striped table-bordered">
@@ -131,8 +128,8 @@
                       <td th:text="${user.phone}"></td>
                       <td th:text="${user.email}"></td>
                       <td>
-                        <button class="btn btn-danger" data-toggle="modal" data-target="#modals-fill-in">修改</button>
-                        <button class="btn btn-info">删除</button>
+                        <button class="btn btn-warning btn-update" th:value="${user.id}" data-toggle="modal" data-target="#modals-fill-in">修改</button>
+                        <button id="bootbox-confirm" class="btn btn-danger" th:value="${user.id}">删除</button>
                       </td>
                     </tr>
                   </tbody>
@@ -159,47 +156,47 @@
         <div class="modal-body text-white">
           <p class="text-large font-weight-light mb-3">修改</p>
           <hr/>
-          <form>
+          <form name="userSave" method="post" action="/saveUser">
             <input type="hidden" name="id">
             <div class="form-group row">
               <label class="col-form-label col-sm-3 text-sm-right">登录名</label>
               <div class="col-sm-5">
-                <input type="text" class="form-control" placeholder="登录名" name="userName">
+                <input type="text" class="form-control" placeholder="登录名" name="userName" required>
               </div>
             </div>
 
             <div class="form-group row">
               <label class="col-form-label col-sm-3 text-sm-right">密码</label>
               <div class="col-sm-5">
-                <input type="password" class="form-control" placeholder="密码" name="passWord">
+                <input type="password" class="form-control" placeholder="密码" name="passWord" required>
               </div>
             </div>
 
             <div class="form-group row">
               <label class="col-form-label col-sm-3 text-sm-right">真实名称</label>
               <div class="col-sm-5">
-                <input type="text" class="form-control" placeholder="真实名称">
+                <input type="text" class="form-control" placeholder="真实名称" name="realName">
               </div>
             </div>
 
             <div class="form-group row">
               <label class="col-form-label col-sm-3 text-sm-right">手机号码</label>
               <div class="col-sm-5">
-                <input type="tel" class="form-control" placeholder="手机号码">
+                <input type="tel" class="form-control" placeholder="手机号码" name="phone">
               </div>
             </div>
 
             <div class="form-group row">
               <label class="col-form-label col-sm-3 text-sm-right">email</label>
               <div class="col-sm-5">
-                <input type="email" class="form-control" placeholder="email">
+                <input type="email" class="form-control" placeholder="email" name="email">
               </div>
             </div>
 
             <div class="form-group row">
               <label class="col-form-label col-sm-3 text-sm-right">职位</label>
               <div class="col-sm-5">
-                <input type="text" class="form-control" placeholder="职位">
+                <input type="text" class="form-control" placeholder="职位" name="workPost">
               </div>
             </div>
 
@@ -218,11 +215,12 @@
   <script src="back/js/popper.js"></script>
   <script src="back/js/bootstrap.js"></script>
   <script src="back/js/sidenav.js"></script>
+  <script src="back/js/perfect-scrollbar.js"></script>
+  <script src="back/js/bootbox.js"></script>
   <!-- Libs -->
-  <script src="back/js/datatables.js"></script>
   <!-- Demo -->
   <script src="back/js/demo.js"></script>
-  <script src="back/js/tables_datatables.js"></script>
+  <script src="back/js/business.js"></script>
 </body>
 
 </html>

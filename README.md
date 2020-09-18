@@ -37,7 +37,9 @@
 ## servlet
 1.业务层采用@Service
 ## controller
-1. @Controller作用于表现层（spring-mvc的注解)
+1. @Controller作用于表现层（spring-mvc的注解)在对应的方法上，视图解析器可以解析return 的jsp,html页面，并且跳转到相应页面
+1. @ResponseBody若返回json等内容到页面，则需要加@ResponseBody注解
+1. @RestController注解，相当于@Controller+@ResponseBody两个注解的结合，返回json数据不需要在方法前面加@ResponseBody注解了，但使用@RestController这个注解，就不能返回jsp,html页面，视图解析器无法解析jsp,html页面
 2. @GetMapping用于将HTTP get请求映射到特定处理程序的方法注解
    具体来说，@GetMapping是一个组合注解，是@RequestMapping(method = RequestMethod.GET)的缩写
 3. @RequestMapping
