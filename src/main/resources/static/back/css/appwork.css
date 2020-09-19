@@ -8095,11 +8095,12 @@ html:not([dir=rtl]) .card-hover[class]:not(:hover),html[dir=rtl] .card-hover[cla
         position: fixed !important;
         top: 0 !important;
         height: 100% !important;
+        width: 100% !important;
         left: 0 !important;
         margin-right: 0 !important;
         margin-left: 0 !important;
-        -webkit-transform: translate3d(-100%, 0, 0);
-        transform: translate3d(-100%, 0, 0);
+        /*-webkit-transform: translate3d(-100%, 0, 0);*/
+        /*transform: translate3d(-100%, 0, 0);*/
         will-change: transform, -webkit-transform
     }
 

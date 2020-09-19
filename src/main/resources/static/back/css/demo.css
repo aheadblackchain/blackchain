@@ -334,3 +334,6 @@ html:not(.material-style) .material-style-only {
 .layout-example-block-3 .layout-example-block-footer {
   background: #e6514a;
 }
+iframe{
+    border-width: 0;
+}
