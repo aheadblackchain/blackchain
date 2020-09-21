@@ -3,7 +3,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en" class="default-style">
 
 <head>
-  <title>用户信息</title>
+  <title>区块链视频介绍</title>
 
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1">
@@ -76,24 +76,20 @@
                 <table class="datatables-demo table table-striped table-bordered">
                   <thead>
                     <tr>
-                      <th>用户名</th>
-                      <th>真实姓名</th>
-                      <th>工作职位</th>
-                      <th>手机</th>
-                      <th>邮箱</th>
+                      <th>标题</th>
+                      <th>详情</th>
+                      <th>视频</th>
                       <th>操作</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr class="odd gradeA" th:each="user:${userList}">
-                      <td th:text="${user.userName}"></td>
-                      <td th:text="${user.realName}"></td>
-                      <td th:text="${user.workPost}"></td>
-                      <td th:text="${user.phone}"></td>
-                      <td th:text="${user.email}"></td>
+                    <tr class="odd gradeA" th:each="animation:${animationList}">
+                      <td th:text="${animation.title}"></td>
+                      <td th:text="${animation.particulars}"></td>
+                      <td th:text="${animation.talentsVideo}"></td>
                       <td>
-                        <button class="btn btn-warning btn-update" th:value="${user.id}" data-toggle="modal" data-target="#modals-fill-in">修改</button>
-                        <button id="bootbox-confirm" class="btn btn-danger" th:value="${user.id}">删除</button>
+                        <button class="btn btn-warning btn-update" th:value="${animation.id}"  data-toggle="modal" data-target="#modals-fill-in">修改</button>
+                        <button id="bootbox-confirm" class="btn btn-danger" th:value="${animation.id}" >删除</button>
                       </td>
                     </tr>
                   </tbody>
@@ -120,47 +116,27 @@
         <div class="modal-body text-white">
           <p class="text-large font-weight-light mb-3">修改</p>
           <hr/>
-          <form name="saveUser" method="post" action="/saveUser">
+          <form name="saveAnimation" method="post" action="/saveAnimation">
             <input type="hidden" name="id">
             <div class="form-group row">
-              <label class="col-form-label col-sm-3 text-sm-right">登录名</label>
+              <label class="col-form-label col-sm-3 text-sm-right">标题</label>
               <div class="col-sm-5">
-                <input type="text" class="form-control" placeholder="登录名" name="userName" required>
+                <input type="text" class="form-control" placeholder="标题" name="title" required>
               </div>
             </div>
 
             <div class="form-group row">
-              <label class="col-form-label col-sm-3 text-sm-right">密码</label>
+              <label class="col-form-label col-sm-3 text-sm-right">描述</label>
               <div class="col-sm-5">
-                <input type="password" class="form-control" placeholder="密码" name="passWord" required>
+                <input type="text" class="form-control" placeholder="描述" name="particulars" required>
               </div>
             </div>
 
             <div class="form-group row">
-              <label class="col-form-label col-sm-3 text-sm-right">真实名称</label>
+              <label class="col-form-label col-sm-3 text-sm-right">视频</label>
               <div class="col-sm-5">
-                <input type="text" class="form-control" placeholder="真实名称" name="realName">
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <label class="col-form-label col-sm-3 text-sm-right">手机号码</label>
-              <div class="col-sm-5">
-                <input type="tel" class="form-control" placeholder="手机号码" name="phone">
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <label class="col-form-label col-sm-3 text-sm-right">email</label>
-              <div class="col-sm-5">
-                <input type="email" class="form-control" placeholder="email" name="email">
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <label class="col-form-label col-sm-3 text-sm-right">职位</label>
-              <div class="col-sm-5">
-                <input type="text" class="form-control" placeholder="职位" name="workPost">
+<!--                  <input type="file" name="talentsVideo" required>-->
+                  <input type="file" name="file" id="fileUpload" multiple/>
               </div>
             </div>
 
@@ -185,7 +161,7 @@
   <!-- Demo -->
   <script src="back/js/demo.js"></script>
   <script src="back/js/business.js"></script>
-  <script src="back/js/user.js"></script>
+  <script src="back/js/animation.js"></script>
 </body>
 
 </html>

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.Date;
 
 
 @Entity
@@ -31,7 +32,7 @@ public class User {
 
     @Column(name = "create_time")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private String createTime;
+    private Date createTime;
 
     public Long getId() {
         return id;
@@ -89,11 +90,11 @@ public class User {
         this.workPost = workPost;
     }
 
-    public String getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(String createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 }

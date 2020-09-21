@@ -24,7 +24,7 @@ public class UserController {
         return "back/login";
     }
 
-    @PostMapping("/getUser/{id}")
+    @PostMapping("/getUserById/{id}")
     @ResponseBody
     public User getUserById(@PathVariable(name = "id") Long id){
         return userServlet.getUserById(id);
