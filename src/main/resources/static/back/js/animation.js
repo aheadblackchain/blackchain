@@ -16,16 +16,14 @@ $(document).ready(function () {
             contentType: false,
             success:function (data) {
                 console.log(data);
-                if(data != null){
+                if(data != null && data != ""){
                     let fileVideo = document.createElement("video");
                     fileVideo.setAttribute("width","300px");
-                    fileVideo.setAttribute("height", "300px");
+                    fileVideo.setAttribute("height", "200px");
                     fileVideo.setAttribute("controls", "controls");
-                    // let fileSource = document.createElement("source");
                     fileVideo.setAttribute("src", data);
-                    // fileSource.setAttribute("type", "video/mp4");
-                    // fileVideo.appendChild(fileSource);
                     $("input[id='fileUpload']")[0].parentNode.appendChild(fileVideo);
+                    $("input[name='talentsVideo']")[0].value = data;
                 }else {
                     alert("上传失败");
                 }

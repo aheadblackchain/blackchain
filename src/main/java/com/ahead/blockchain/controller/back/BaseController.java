@@ -34,12 +34,9 @@ public class BaseController {
             return null;
         }
         try {
-            String fileName = (new Date()).getTime()+ "." + fileUpload.getOriginalFilename().split(".")[1];
+            String fileName = (new Date()).getTime()+ "." + fileUpload.getOriginalFilename().split("\\.")[1];
             String filePath = UPLOAD_FILE_PATH+fileName;
             File desc = new File(filePath);
-            if (!desc.getParentFile().exists()) {
-                desc.getParentFile().mkdirs();
-            }
             fileUpload.transferTo(desc);
             return PATH_PATTERNS+fileName;
         } catch (IOException e) {
