@@ -1,6 +1,7 @@
 package com.ahead.blockchain.controller.back;
 
 import org.apache.tomcat.util.http.fileupload.IOUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,9 +11,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
+import java.util.Date;
 
 @Controller
 public class BaseController {
+
+    @Value("${file.upload.url}")
+    private String UPLOAD_FILE_PATH;
+
+    @Value("${file.pathPatterns.url}")
+    private String PATH_PATTERNS;
+
     @GetMapping("/left")
     public String left(){
         return "back/left";
@@ -22,24 +31,20 @@ public class BaseController {
     @ResponseBody
     public String fileUpload(@RequestParam("fileUpload") MultipartFile fileUpload){
         if(fileUpload.isEmpty()){
-            return "上传失败，没有读取到文件";
+            return null;
         }
         try {
-            String fileName = fileUpload.getOriginalFilename();
-//            File desc = new File("../../../../"+ResourceUtils.getURL("classpath:").getPath());
-//            File desc = new File("D:\\ahead\\blockchain_project\\idea");
-//            if(!desc.exists()) {
-//                desc = new File(desc.getAbsolutePath(),"static/upload/");
-//            }
-//            fileUpdate.transferTo(desc);
-            try (InputStream inputStream = fileUpload.getInputStream(); OutputStream out = new FileOutputStream(new File("D:\\ahead\\blockchain_project\\idea\\"+fileUpload.getOriginalFilename()))) {
-                // files.transferTo(new File("c:/12.jpg"));
-                IOUtils.copy(inputStream, out);
+            String fileName = (new Date()).getTime()+ "." + fileUpload.getOriginalFilename().split(".")[1];
+            String filePath = UPLOAD_FILE_PATH+fileName;
+            File desc = new File(filePath);
+            if (!desc.getParentFile().exists()) {
+                desc.getParentFile().mkdirs();
             }
-            return "上传成功";
+            fileUpload.transferTo(desc);
+            return PATH_PATTERNS+fileName;
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "";
+        return null;
     }
 }
