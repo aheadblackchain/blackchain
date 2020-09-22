@@ -10,5 +10,11 @@
         <br/>
         <input type="submit">
     </form>
+
+    <ul>
+        <li th:each="a:${key}">
+            <span th:text="${a.name}"></span>
+        </li>
+    </ul>
 </body>
 </html>

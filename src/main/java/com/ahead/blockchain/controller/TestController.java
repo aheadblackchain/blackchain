@@ -4,9 +4,12 @@ import com.ahead.blockchain.entity.Test;
 import com.ahead.blockchain.servlet.TestServlet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 @Controller
 public class TestController {
@@ -24,14 +27,23 @@ public class TestController {
     }
 
     @GetMapping("/abc")
-    public String test(){
+    public String test(Model model){
+        List<Test> testList = testServlet.findAll();
+        model.addAttribute("key",testList);
         return "test";
     }
 
     @PostMapping("/saveTest")
-    @ResponseBody
     public String saveTest(Test test){
         testServlet.save(test);
-        return "成功";
+        //重定向
+        return "redirect:/abc";
     }
+
+//    @GetMapping("def")
+//    public String def(Model model){
+//        List<Test> testList = testServlet.findAll();
+//        model.addAttribute("key",testList);
+//        return "def";
+//    }
 }
