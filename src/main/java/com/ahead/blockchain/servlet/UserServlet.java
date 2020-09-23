@@ -2,8 +2,9 @@ package com.ahead.blockchain.servlet;
 
 import com.ahead.blockchain.dao.UserDao;
 import com.ahead.blockchain.entity.User;
-import org.hibernate.mapping.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,4 +27,9 @@ public class UserServlet {
     }
 
     public User getUserById(Long id){return userDao.findById(id).orElseGet(() -> new User());}
+
+    public Long login(User user){
+        Example<User> example = Example.of(user);
+        return userDao.count(example);
+    }
 }

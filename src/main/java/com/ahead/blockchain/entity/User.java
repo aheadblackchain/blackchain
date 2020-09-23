@@ -1,7 +1,6 @@
 package com.ahead.blockchain.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -18,7 +17,6 @@ public class User {
     private String userName;
 
     @Column(name = "pass_word", nullable = false)
-    @JsonIgnore
     private String passWord;
 
     @Column(name = "real_name")
@@ -33,6 +31,9 @@ public class User {
     @Column(name = "create_time")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
+
+    @Transient
+    private boolean isUpdatePassWord;
 
     public Long getId() {
         return id;
@@ -96,5 +97,13 @@ public class User {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public boolean getIsUpdatePassWord() {
+        return isUpdatePassWord;
+    }
+
+    public void setIsUpdatePassWord(boolean updatePassWord) {
+        isUpdatePassWord = updatePassWord;
     }
 }
