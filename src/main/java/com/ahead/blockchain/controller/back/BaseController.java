@@ -44,4 +44,10 @@ public class BaseController {
         }
         return null;
     }
+
+
+    @GetMapping("/login")
+    public String toLoginPage(){
+        return "back/login";
+    }
 }

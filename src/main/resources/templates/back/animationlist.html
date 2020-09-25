@@ -10,19 +10,19 @@
     <meta name="description" content="">
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="back/img/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/back/img/favicon.ico">
     <!-- Icon fonts -->
-    <link rel="stylesheet" href="back/fonts/fontawesome.css">
-    <link rel="stylesheet" href="back/fonts/ionicons.css">
+    <link rel="stylesheet" href="/back/fonts/fontawesome.css">
+    <link rel="stylesheet" href="/back/fonts/ionicons.css">
     <!-- Core stylesheets -->
-    <link rel="stylesheet" href="back/css/bootstrap.css" class="theme-settings-bootstrap-css">
-    <link rel="stylesheet" href="back/css/appwork.css" class="theme-settings-appwork-css">
-    <link rel="stylesheet" href="back/css/theme-corporate.css" class="theme-settings-theme-css">
-    <link rel="stylesheet" href="back/css/colors.css" class="theme-settings-colors-css">
-    <link rel="stylesheet" href="back/css/uikit.css">
-    <link rel="stylesheet" href="back/css/demo.css">
-    <script src="back/js/layout-helpers.js"></script>
-    <script src="back/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="/back/css/bootstrap.css" class="theme-settings-bootstrap-css">
+    <link rel="stylesheet" href="/back/css/appwork.css" class="theme-settings-appwork-css">
+    <link rel="stylesheet" href="/back/css/theme-corporate.css" class="theme-settings-theme-css">
+    <link rel="stylesheet" href="/back/css/colors.css" class="theme-settings-colors-css">
+    <link rel="stylesheet" href="/back/css/uikit.css">
+    <link rel="stylesheet" href="/back/css/demo.css">
+    <script src="/back/js/layout-helpers.js"></script>
+    <script src="/back/js/jquery.min.js"></script>
 </head>
 
 <body>
@@ -35,7 +35,7 @@
     <div class="layout-inner">
 
         <!-- Layout sidenav -->
-        <iframe src="left" scrolling="no"></iframe>
+        <iframe src="/left" scrolling="no"></iframe>
         <!-- / Layout sidenav -->
 
         <!-- Layout container -->
@@ -112,7 +112,7 @@
                                         <button class="btn btn-warning btn-update" th:value="${animation.id}"
                                                 data-toggle="modal" data-target="#modals-fill-in">修改
                                         </button>
-                                        <button id="bootbox-confirm" class="btn btn-danger" th:value="${animation.id}">
+                                        <button id="bootbox-confirm" class="btn btn-danger btn-delete" th:value="${animation.id}">
                                             删除
                                         </button>
                                     </td>
@@ -141,7 +141,7 @@
             <div class="modal-body text-white">
                 <p class="text-large font-weight-light mb-3">修改</p>
                 <hr/>
-                <form name="saveAnimation" method="post" action="/saveAnimation">
+                <form name="saveAnimation" method="post" action="/animation/save">
                     <input type="hidden" name="id">
                     <div class="form-group row">
                         <label class="col-form-label col-sm-3 text-sm-right">标题</label>
@@ -179,16 +179,16 @@
 </div>
 <!--end update user -->
 <!-- Core scripts -->
-<script src="back/js/popper.js"></script>
-<script src="back/js/bootstrap.js"></script>
-<script src="back/js/sidenav.js"></script>
-<script src="back/js/perfect-scrollbar.js"></script>
-<script src="back/js/bootbox.js"></script>
+<script src="/back/js/popper.js"></script>
+<script src="/back/js/bootstrap.js"></script>
+<script src="/back/js/sidenav.js"></script>
+<script src="/back/js/perfect-scrollbar.js"></script>
+<script src="/back/js/bootbox.js"></script>
 <!-- Libs -->
 <!-- Demo -->
-<script src="back/js/demo.js"></script>
-<script src="back/js/business.js"></script>
-<script src="back/js/animation.js"></script>
+<script src="/back/js/demo.js"></script>
+<script src="/back/js/business.js"></script>
+<script src="/back/js/animation.js"></script>
 </body>
 
 </html>

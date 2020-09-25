@@ -1,7 +1,7 @@
 $(document).ready(function () {
-    updateTable("/getAnimationById/","saveAnimation");
+    updateTable("/animation/byId/","saveAnimation");
     insertTable("saveAnimation");
-    delTable("/delAnimation/");
+    delTable("/animation/del/");
 
     $("input[type='file']").change(function () {
         let files = $("input[id='fileUpload']").prop("files");

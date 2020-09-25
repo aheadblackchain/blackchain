@@ -1,8 +1,8 @@
 $(document).ready(function () {
-    updateTable("/getUserById/","saveUser");
+    updateTable("/user/byId/","saveUser");
     insertTable("saveUser");
-    delTable("/delUser/");
+    delTable("/user/del/");
     $("input[name='passWord']").change(function () {
-        $("input[name='isUpdatePassWord']")[0].value = true;
+        $("input[name='isUpdatePassWord']")[0].value = 1;
     });
 });

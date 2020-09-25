@@ -14,12 +14,12 @@ function updateTable(updateUrl, fromName,) {
 function insertTable(fromName) {
     $(".btn-insert").click(function () {
         $("form[name=" + fromName + "]")[0].reset();
-        Arrays.of(...$("input[type='hidden']")).forEach(i => i.value = "");
+        Array.of(...$("input[type='hidden']")).forEach(i => i.value = "");
     });
 }
 
 function delTable(delUrl) {
-    $('#bootbox-confirm').on('click', function () {
+    $('.btn-delete').on('click', function () {
         let id = this.value;
         bootbox.confirm({
             message: 'Are you sure to delete it?',

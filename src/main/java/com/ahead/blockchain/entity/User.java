@@ -33,7 +33,7 @@ public class User {
     private Date createTime;
 
     @Transient
-    private boolean isUpdatePassWord;
+    private Integer isUpdatePassWord;
 
     public Long getId() {
         return id;
@@ -99,11 +99,11 @@ public class User {
         this.createTime = createTime;
     }
 
-    public boolean getIsUpdatePassWord() {
+    public Integer getIsUpdatePassWord() {
         return isUpdatePassWord;
     }
 
-    public void setIsUpdatePassWord(boolean updatePassWord) {
+    public void setIsUpdatePassWord(Integer updatePassWord) {
         isUpdatePassWord = updatePassWord;
     }
 }

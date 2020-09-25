@@ -16,6 +16,12 @@ margin-right: 0px!important;
   min-height: 100vh;
   background-color: rgba(0,0,0, 0.7); /* Black Opacity On Video */
 }
+.video-background-10vh {
+    position: relative;
+    width: 100%;
+    min-height: 10vh;
+    background-color: rgba(0,0,0, 0.7); /* Black Opacity On Video */
+}
 .video-wrap {
   clip: rect(0, auto, auto, 0);
   position: absolute;
