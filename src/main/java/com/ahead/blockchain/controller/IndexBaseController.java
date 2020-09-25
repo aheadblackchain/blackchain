@@ -14,4 +14,9 @@ public class IndexBaseController {
     public String blackChainRecommendimg(){
         return "website/blackchainrecommendimg";
     }
+
+    @GetMapping("/info")
+    public String info(){
+        return "website/blackchaininfo";
+    }
 }
