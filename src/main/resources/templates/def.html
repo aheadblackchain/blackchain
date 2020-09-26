@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>展示 test</title>
+</head>
+<body>
+    <ul>
+        <li th:each="a:${key}">
+            <span th:text="${a.name}"></span>
+        </li>
+    </ul>
+</body>
+</html>

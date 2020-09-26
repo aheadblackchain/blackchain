@@ -364,79 +364,15 @@
 					<div class="heading-underline"></div>
 				</div>
 
-				<div class="col-md-4">
-					<div class="os-animation" data-animation="fadeInLeft">
-						<h3>密码学</h3>
-						<div class="feature">
-							<span class="fa-layers fa-3x">
-								<i class="fas fa-code"></i>
-							</span>
-						</div>
-						<p class="lead">关于加密和解密变换的一门科学</p>
-					</div>
-				</div>
-
-				<div class="col-md-4">
-					<div class="os-animation" data-animation="fadeInUp">
-						<h3>计算机网络</h3>
-						<div class="feature">
-							<span class="fa-layers fa-3x">
-								<i class="fas fa-bold"></i>
-							</span>
-						</div>
-						<p class="lead">通信技术与计算机技术相结合</p>
-					</div>
-				</div>
-
-				<div class="col-md-4">
+				<div class="col-md-4" th:each="domain:${domainList}">
 					<div class="os-animation" data-animation="fadeInRight">
-						<h3>信息安全</h3>
+						<h3 th:text="${domain.name}"></h3>
 						<div class="feature">
 							<span class="fa-layers fa-3x">
 								<i class="fab fa-css3"></i>
 							</span>
 						</div>
-						<p class="lead">涉及计算机、通信、数学、微电子、法律、密码学等诸多领域的综合性交叉学科</p>
-					</div>
-				</div>
-
-
-
-
-
-				<div class="col-md-4">
-					<div class="os-animation" data-animation="fadeInLeft">
-						<h3>数据结构</h3>
-						<div class="feature">
-							<span class="fa-layers fa-3x">
-								<i class="fas fa-code"></i>
-							</span>
-						</div>
-						<p class="lead">研究非数值计算的程序设计中计算机的操作对象及其关系与运算的技术科学</p>
-					</div>
-				</div>
-
-				<div class="col-md-4">
-					<div class="os-animation" data-animation="fadeInUp">
-						<h3>系统工程</h3>
-						<div class="feature">
-							<span class="fa-layers fa-3x">
-								<i class="fas fa-bold"></i>
-							</span>
-						</div>
-						<p class="lead">研究大规模复杂系统</p>
-					</div>
-				</div>
-
-				<div class="col-md-4">
-					<div class="os-animation" data-animation="fadeInRight">
-						<h3>分布式计算</h3>
-						<div class="feature">
-							<span class="fa-layers fa-3x">
-								<i class="fab fa-css3"></i>
-							</span>
-						</div>
-						<p class="lead">把一个需要巨大计算能力才能解决的问题分解成小的任务单元</p>
+						<p class="lead" th:text="${domain.detail}"></p>
 					</div>
 				</div>
 
@@ -720,47 +656,19 @@
 
 				<div class="col-md-12">
 					<div class="os-animation" data-animation="fadeInUp">
-						<div id="team-slider" class="owl-carousel owl-theme">
+						<div id="team-slider" class="owl-carousel owl-theme" >
 
-							<div class="card text-center">
-								<img class="card-img-top" src="website/img/team/team1.png" alt="">
+							<div class="card text-center"  th:each="news:${newsList}">
+								<img class="card-img-top" th:src="${news.newimg}" alt="">
 								<div class="card-body">
-									<h4>先锋软件与北京八分量签署战略合作协</h4>
-									<h5>2020-04-08</h5>
-									<p>中技所主持两地四处同步在线直播的链上签约仪式，在炜衡律师所见证下，先锋软件和北京八分量进行链上签约。</p>
-									
+									<h4 th:text="${news.title}"></h4>
+									<h5 th:text="${news.newtime}"></h5>
+									<p class="lead" th:text="${news.detail}"></p>
+
 								</div>
 							</div>
 
-							<div class="card text-center">
-								<img class="card-img-top" src="website/img/team/team2.png" alt="">
-								<div class="card-body">
-									<h4>中国第一个区块链学院在南昌成立</h4>
-									<h5>2019-07-01</h5>
-									<p>6月30日，中国第一个区块链学院在江西软件职业技术大学举行了揭牌仪式。</p>
-									
-								</div>
-							</div>
 
-							<div class="card text-center">
-								<img class="card-img-top" src="website/img/team/team3.png" alt="">
-								<div class="card-body">
-									<h4>江西副省长陈小平视察江西软件大学</h4>
-									<h5> 2020-03-13</h5>
-									<p>3月13日上午，陈小平副省长视察学校，考察了先锋鲜花小镇、博士后工作站、校史馆、区块链院、区块链专家小村等。</p>
-								
-								</div>
-							</div>
-
-							<div class="card text-center">
-								<img class="card-img-top" src="website/img/team/team4.png" alt="">
-								<div class="card-body">
-									<h4>首届南昌国际区块链技术应用大会在先锋创客小镇隆重召开</h4>
-									<h5> 2020-03-13</h5>
-									<p>来自美国、德国、荷兰、意大利、南非、阿根廷等地的区块链顶级大咖与500余名各界专家及创客参与大会。</p>
-									
-								</div>
-							</div>
 
 						</div>
 						<!--- End Team Slider -->
@@ -798,53 +706,23 @@
 					<div class="heading-underline"></div>
 				</div>
 
-				<div class="col-md-12">
-					<div class="os-animation" data-animation="fadeInUp">
-						<div id="clients-slider" class="owl-carousel owl-theme">
+				<div class="col-md-12" >
+					<div class="os-animation" data-animation="fadeInUp" th:each="surrounding:${surroundingList}">
 
-							<a href="/blackChainRecommendImg" class="row clients">
-								<div class="col-md-4">
-									<img src="website/img/clients/client1.png" alt="">
-								</div>
-								<div class="col-md-8">
-									<blockquote>
-										<i class="fas fa-quote-left"></i>
-										学校前身是创办于2003年的江西先锋软件职业技术学院；2018年12月18日，学校升格为本科层次职业学校，成为全国本科层次职业教育高校；2019年5月27日，教育部批复更名为江西软件职业技术大学。
-										<hr class="clients-hr">
-										<cite>&#8212;创业实训基地</cite>
-									</blockquote>
-								</div>
-							</a>
-
-							<div class="row clients">
-								<div class="col-md-4">
-									<img src="website/img/clients/client2.png" alt="">
-								</div>
-								<div class="col-md-8">
-									<blockquote>
-										<i class="fas fa-quote-left"></i>
-										经南昌市会展办批准，南昌市第二届郁金香花展于3月15日至4月23日在先锋小镇举行。
-										<hr class="clients-hr">
-										<cite>&#8212; 先锋小镇</cite>
-									</blockquote>
-								</div>
+						<a href="/blackChainRecommendImg" class="row clients">
+							<div class="col-md-4">
+								<img th:src="${surrounding.surimg}" alt="">
 							</div>
-
-							<div class="row clients">
-								<div class="col-md-4">
-									<img src="website/img/clients/client3.png" alt="">
-								</div>
-								<div class="col-md-8">
-									<blockquote>
-										<i class="fas fa-quote-left"></i>
-										创客大厦，汇集了数十家企业与学校共建的实验、实训室，为教学、科研、实验、实训提供了良好的环境。
-										<hr class="clients-hr">
-										<cite>&#8212; 区块链学院</cite>
-									</blockquote>
-								</div>
+							<div class="col-md-8">
+								<blockquote>
+									<i class="fas fa-quote-left"></i>
+									<h6 th:text="${surrounding.surdescribe}"></h6>
+									<hr class="clients-hr">
+									<cite>&#8212; <h3 th:text="${surrounding.surbelong}"></h3></cite>
+								</blockquote>
 							</div>
+						</a>
 
-						</div>
 						<!--- End Clients Slider -->
 					</div>
 					<!--- End Animation -->
