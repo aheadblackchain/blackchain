@@ -13,12 +13,10 @@ public class Talents {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "profession")
+
     private String profession;
 
     private String detail;
-
-
 
     @Column(name = "create_user")
     private Long createUser;
