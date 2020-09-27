@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>footer</title>
+    <link rel="stylesheet" href="website/css/home-style.css">
+    <link rel="stylesheet" href="website/css/style.css">
+    <link rel="stylesheet" href="website/css/portfolio.css">
+</head>
+<body >
+<!--- Start Contact Section -->
+<div id="contact" class="offset">
+
+    <footer>
+        <div class="row">
+
+            <div class="col-md-5">
+                <img src="website/img/nuno.png" alt="">
+                <p>江西软件职业技术大学（Jiangxi Vocational and Technical University of
+                    Software，JVTUS），坐落于江西省南昌市。学校是江西省教育厅主管的实施高等职业教育的全日制民办本科高校、全国示范性软件职业技术学院之一、民办本科层次职业教育试点学校。</p>
+                <strong>地址</strong>
+                <p>江西省南昌市湾里区先锋创客小镇 <br>电话：0791-83792966 </p>
+
+
+            </div>
+
+            <div class="col-md-7">
+                <h3>联系我们</h3>
+
+                <form id="contact-form" method="post" action="contact.php">
+
+                    <div class="messages"></div>
+                    <div class="controls">
+
+                        <div class="form-group">
+                            <input id="form_name" type="text" name="name" class="form-control"
+                                   placeholder="您的姓名." required="required">
+                        </div>
+
+                        <div class="form-group">
+                            <input id="form_email" type="email" name="email" class="form-control"
+                                   placeholder="你的联系方式." required="required">
+                        </div>
+
+                        <div class="form-group">
+								<textarea id="form_message" name="message" class="form-control"
+                                          placeholder="您的建议." rows="4" required="required"></textarea>
+                        </div>
+
+                        <input type="submit" class="btn btn-outline-light btn-sm" value="发送">
+
+                    </div>
+
+                </form>
+
+            </div>
+
+            <hr class="socket">
+            &copy; 江西软件职业技术大学 区块链学院.
+
+        </div>
+        <!--- End of Row -->
+    </footer>
+    <!--- End of Footer -->
+
+</div>
+<!--- End Contact Section -->
+</body>
+</html>
