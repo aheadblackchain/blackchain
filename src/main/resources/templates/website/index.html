@@ -81,7 +81,6 @@
         <!--- End Video Wrap -->
     </div>
     <!--- End Video Background -->
-
     <!--- Start Landing Page Image -->
     <div class="landing">
         <div class="home-wrap">
@@ -90,22 +89,18 @@
         </div>
     </div>
     <!--- End Landing Page Image -->
-
     <!--- Start Landing Page Caption -->
     <div class="caption text-center">
 
         <div class="os-animation" data-animation="bounceInUp" data-delay=".6s">
             <h1>欢迎来到区块链学院</h1>
         </div>
-
         <div class="os-animation" data-animation="bounceInUp" data-delay=".8s">
             <h3>江西软件职业技术大学</h3>
         </div>
-
         <div class="os-animation" data-animation="bounceInUp" data-delay="1s">
             <a class="btn btn-outline-light btn-lg" href="#features">开始</a>
         </div>
-
     </div>
     <!--- End Landing Page Caption -->
 
@@ -115,7 +110,6 @@
             <i class="fas fa-angle-down" aria-hidden="true"></i>
         </div>
     </a>
-
 </div>
 <!--- End Home Section -->
 <!--- Start Features Section -->
@@ -131,8 +125,6 @@
         </div>
     </div>
     <!--- End Animation -->
-
-
     <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(website/images/bg_3.jpg);"
              data-stellar-background-ratio="0.5">
         <div class="container">
@@ -181,7 +173,6 @@
         <!--- End Narrow -->
     </div>
     <!--- End Jumbotron -->
-
     <!--- Start Fixed Background IMG Dark -->
     <div class="fixed-background">
         <div class="row dark">
@@ -202,19 +193,14 @@
             </div>
         </div>
         <!--- End of Row Dark -->
-
         <div class="fixed-wrap">
-            <div id="fixed">
-            </div>
         </div>
-
     </div>
     <!--- End Fixed Background IMG Dark -->
-
 </div>
 <!--- End of Features Section -->
 <!--- Start Portfolio Section -->
-<div id="portfolio" class="offset">
+<div class="offset">
     <div class="row padding">
         <div class="col-12 os-animation" data-animation="fadeInUp">
             <h3 class="heading">与世界同步的课程</h3>
@@ -222,7 +208,6 @@
         </div>
     </div>
     <!--- End Row -->
-
     <!--- Start Portfolio Grid -->
     <div class="container-fluid">
         <div class="row no-padding">
@@ -241,7 +226,6 @@
     </div>
     <!--- End Container -->
     <!--- End Portfolio Grid -->
-
     <div class="os-animation" data-animation="fadeInUp">
         <div class="narrow text-center">
             <div class="col-12">
@@ -251,10 +235,8 @@
             </div>
         </div>
     </div>
-
 </div>
 <!--- End of Portfolio Section -->
-
 <!--- Start Pricing Section -->
 <div id="pricing" class="offset">
     <!--- Start Jumbotron -->
@@ -317,14 +299,30 @@
             <!--- End col-md-12 -->
         </div>
         <!--- End of Row Light -->
+	<!--- Start Fixed Background IMG Light -->
+	<div class="fixed-background">
+		<div class="row light">
+			<div class="col-12 os-animation" data-animation="fadeInUp">
+				<h3 class="heading">新闻</h3>
+				<div class="heading-underline"></div>
+			</div>
+			<div class="col-md-12">
+				<div class="os-animation" data-animation="fadeInUp">
+					<div class="owl-carousel owl-theme" >
 
-        <div class="fixed-wrap">
-            <div id="fixed-2">
-            </div>
-        </div>
-
-    </div>
-    <!--- End Fixed Background IMG Light -->
+						<div class="card text-center"  th:each="news:${newsList}">
+							<img class="card-img-top" th:src="${news.newimg}" alt="">
+							<div class="card-body">
+								<h4 th:text="${news.title}"></h4>
+								<h5 th:text="${news.newtime}"></h5>
+								<p class="lead" th:text="${news.detail}"></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 <!--- End Team Section -->
 
@@ -368,68 +366,212 @@
     <!--- End of Container -->
 </div>
 <!--- End of Clients Section -->
-<!--- Start Contact Section -->
-<div id="contact" class="offset">
-
-    <footer>
-        <div class="row">
-
-            <div class="col-md-5">
-                <img src="website/img/nuno.png" alt="">
-                <p>江西软件职业技术大学（Jiangxi Vocational and Technical University of
-                    Software，JVTUS），坐落于江西省南昌市。学校是江西省教育厅主管的实施高等职业教育的全日制民办本科高校、全国示范性软件职业技术学院之一、民办本科层次职业教育试点学校。</p>
-                <strong>地址</strong>
-                <p>江西省南昌市湾里区先锋创客小镇 <br>电话：0791-83792966 </p>
-
-
-            </div>
-
-            <div class="col-md-7">
-                <h3>联系我们</h3>
-
-                <form id="contact-form" method="post" action="contact.php">
-
-                    <div class="messages"></div>
-                    <div class="controls">
-
-                        <div class="form-group">
-                            <input id="form_name" type="text" name="name" class="form-control"
-                                   placeholder="您的姓名." required="required">
-                        </div>
-
-                        <div class="form-group">
-                            <input id="form_email" type="email" name="email" class="form-control"
-                                   placeholder="你的联系方式." required="required">
-                        </div>
-
-                        <div class="form-group">
-								<textarea id="form_message" name="message" class="form-control"
-                                          placeholder="您的建议." rows="4" required="required"></textarea>
-                        </div>
-
-                        <input type="submit" class="btn btn-outline-light btn-sm" value="发送">
-
-                    </div>
-
-                </form>
-
-            </div>
-
-            <hr class="socket">
-            &copy; 江西软件职业技术大学 区块链学院.
-
-        </div>
-        <!--- End of Row -->
-    </footer>
-    <!--- End of Footer -->
-
+<!--- Start Contact Section --></div>
 </div>
-<!--- End Contact Section -->
+</div>
+			<!--- End of Row Dark -->
 
-<!--- Top Scroll -->
-<a href="#home" class="top-scroll">
-    <i class="fas fa-angle-up"></i>
-</a>
+<!--			</div>-->
+<!--			&lt;!&ndash;- End Row &ndash;&gt;-->
+<!--		</div>-->
+<!--		&lt;!&ndash;- End Container &ndash;&gt;-->
+<!--		&lt;!&ndash;- End Portfolio Grid &ndash;&gt;-->
+
+<!--		<div class="os-animation" data-animation="fadeInUp">-->
+<!--			<div class="narrow text-center">-->
+<!--				<div class="col-12">-->
+<!--					<p class="lead">Ethereum、Fabric、GoLang、Java、Solidity、Python、NodeJS、Reace、Mysql、Linux、Docker、NoSql-->
+<!--					</p>-->
+<!--					<a class="btn btn-secondary btn-sm" href="#contact">进入学习平台Learing</a>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--		</div>-->
+
+<!--	</div>-->
+<!--	&lt;!&ndash;- End of Portfolio Section &ndash;&gt;-->
+
+<!--	&lt;!&ndash;- Start Pricing Section &ndash;&gt;-->
+<!--	<div class="offset">-->
+
+<!--		&lt;!&ndash;- Start Jumbotron &ndash;&gt;-->
+<!--		<div class="jumbotron">-->
+<!--			<div class="narrow">-->
+
+<!--				<div class="os-animation" data-animation="fadeInUp">-->
+<!--					<h3 class="heading">区块链实训项目</h3>-->
+<!--					<div class="heading-underline"></div>-->
+<!--				</div>-->
+
+<!--				&lt;!&ndash;- Start Pricing Columns &ndash;&gt;-->
+<!--				<div class="row justify-content-md-center">-->
+
+<!--					<div class="col-md-6 col-lg-4">-->
+<!--						<div class="os-animation" data-animation="fadeInLeft">-->
+<!--							<div class="pricing-column text-center">-->
+<!--								<h3>江西省教育厅</h3>-->
+<!--								<p>学分互认系统</p>-->
+<!--								<div class="pricing-features  clients">-->
+<!--									<img src="website/img/clients/xm1.png" alt="">-->
+<!--								</div>-->
+<!--								&lt;!&ndash; <h1>$49</h1> &ndash;&gt;-->
+<!--								<a class="btn btn-secondary btn-sm" href="#contact">区块链+教育</a>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--					</div>-->
+
+<!--					<div class="col-md-6 col-lg-4">-->
+<!--						<div class="os-animation" data-animation="fadeInUp">-->
+<!--							<div class="pricing-column text-center">-->
+<!--								&lt;!&ndash; <div class="ribbon">进行中</div> &ndash;&gt;-->
+<!--								<h3>江西省政法委</h3>-->
+<!--								<p>基于区块链的KRM-A6政法跨部门办案平台</p>-->
+<!--								<div class="pricing-features  clients">-->
+<!--									<img src="website/img/clients/xm2.png" alt="">-->
+<!--								</div>-->
+<!--								&lt;!&ndash; <h1>$99</h1> &ndash;&gt;-->
+<!--								<a class="btn btn-turquoise btn-sm" href="#contact">区块链+政务</a>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--					</div>-->
+
+<!--					<div class="col-md-6 col-lg-4">-->
+<!--						<div class="os-animation" data-animation="fadeInRight">-->
+<!--							<div class="pricing-column text-center">-->
+<!--								<h3>江西省人社厅</h3>-->
+<!--								<p>江西省人才引进管理系统(人才政策跟踪问效) </p>-->
+<!--								<div class="pricing-features  clients">-->
+<!--									<img src="website/img/clients/xm3.png" alt="">-->
+<!--								</div>-->
+<!--								&lt;!&ndash; <h1>$149</h1> &ndash;&gt;-->
+<!--								<a class="btn btn-secondary btn-sm" href="#contact">区块链+政务</a>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--					</div>-->
+
+<!--				</div>-->
+<!--				&lt;!&ndash;- End Pricing Columns &ndash;&gt;-->
+
+<!--			</div>-->
+<!--			&lt;!&ndash;- End Narrow &ndash;&gt;-->
+<!--		</div>-->
+<!--		&lt;!&ndash;- End Jumbotron &ndash;&gt;-->
+
+<!--	</div>-->
+<!--	&lt;!&ndash;- End of Pricing Section &ndash;&gt;-->
+
+<!--	&lt;!&ndash;- Start Team Section &ndash;&gt;-->
+
+<!--	&lt;!&ndash;- End Team Section &ndash;&gt;-->
+
+<!--	&lt;!&ndash;- Start Skills Section &ndash;&gt;-->
+
+<!--	&lt;!&ndash;- End of Skills Section &ndash;&gt;-->
+
+<!--	&lt;!&ndash;- Start Clients Section &ndash;&gt;-->
+<!--	<div class="offset">-->
+
+<!--		<div class="container-fluid">-->
+<!--			<div class="row padding">-->
+
+<!--				<div class="col-12 os-animation" data-animation="fadeInUp">-->
+<!--					<h3 class="heading">教学环境</h3>-->
+<!--					<div class="heading-underline"></div>-->
+<!--				</div>-->
+
+<!--				<div class="col-md-12" >-->
+<!--					<div class="os-animation" data-animation="fadeInUp" th:each="surrounding:${surroundingList}">-->
+
+<!--						<a href="/blackChainRecommendImg" class="row clients">-->
+<!--							<div class="col-md-3">-->
+<!--								<img th:src="${surrounding.surimg}" alt="">-->
+<!--							</div>-->
+<!--							<div class="col-md-8">-->
+<!--								<blockquote>-->
+<!--									<i class="fas fa-quote-left"></i>-->
+<!--									<h2 th:text="${surrounding.surdescribe}"></h2>-->
+<!--									<hr class="clients-hr">-->
+<!--									<cite>&#8212; <h3 th:text="${surrounding.surbelong}"></h3></cite>-->
+<!--								</blockquote>-->
+<!--							</div>-->
+<!--						</a>-->
+
+<!--						&lt;!&ndash;- End Clients Slider &ndash;&gt;-->
+<!--					</div>-->
+<!--					&lt;!&ndash;- End Animation &ndash;&gt;-->
+<!--				</div>-->
+<!--				&lt;!&ndash;- End col-md-12 &ndash;&gt;-->
+
+<!--			</div>-->
+<!--			&lt;!&ndash;- End of Row &ndash;&gt;-->
+<!--		</div>-->
+<!--		&lt;!&ndash;- End of Container &ndash;&gt;-->
+
+<!--	</div>-->
+<!--	&lt;!&ndash;- End of Clients Section &ndash;&gt;-->
+
+<!--	&lt;!&ndash;- Start Contact Section &ndash;&gt;-->
+<!--	<div id="contact" class="offset">-->
+
+<!--		<footer>-->
+<!--			<div class="row">-->
+
+<!--				<div class="col-md-5">-->
+<!--					<img src="website/img/nuno.png" alt="">-->
+<!--					<p>江西软件职业技术大学（Jiangxi Vocational and Technical University of-->
+<!--						Software，JVTUS），坐落于江西省南昌市。学校是江西省教育厅主管的实施高等职业教育的全日制民办本科高校、全国示范性软件职业技术学院之一、民办本科层次职业教育试点学校。</p>-->
+<!--					<strong>地址</strong>-->
+<!--					<p>江西省南昌市湾里区先锋创客小镇 <br>电话：0791-83792966 </p>-->
+<!--					-->
+<!--					-->
+<!--				</div>-->
+
+<!--				<div class="col-md-7">-->
+<!--					<h3>联系我们</h3>-->
+
+<!--					<form id="contact-form" method="post" action="contact.php">-->
+
+<!--						<div class="messages"></div>-->
+<!--						<div class="controls">-->
+
+<!--							<div class="form-group">-->
+<!--								<input id="form_name" type="text" name="name" class="form-control"-->
+<!--									placeholder="您的姓名." required="required">-->
+<!--							</div>-->
+
+<!--							<div class="form-group">-->
+<!--								<input id="form_email" type="email" name="email" class="form-control"-->
+<!--									placeholder="你的联系方式." required="required">-->
+<!--							</div>-->
+
+<!--							<div class="form-group">-->
+<!--&gt;>>>>>> Stashed changes-->
+<!--								<textarea id="form_message" name="message" class="form-control"-->
+<!--                                          placeholder="您的建议." rows="4" required="required"></textarea>-->
+<!--                        </div>-->
+
+<!--                        <input type="submit" class="btn btn-outline-light btn-sm" value="发送">-->
+
+<!--                    </div>-->
+
+<!--                </form>-->
+
+<!--            </div>-->
+
+<!--            <hr class="socket">-->
+<!--            &copy; 江西软件职业技术大学 区块链学院.-->
+
+<!--        </div>-->
+<!--        &lt;!&ndash;- End of Row &ndash;&gt;-->
+<!--    </footer>-->
+<!--    &lt;!&ndash;- End of Footer &ndash;&gt;-->
+
+<!--</div>-->
+<!--&lt;!&ndash;- End Contact Section &ndash;&gt;-->
+
+<!--&lt;!&ndash;- Top Scroll &ndash;&gt;-->
+<!--<a href="#home" class="top-scroll">-->
+<!--    <i class="fas fa-angle-up"></i>-->
+<!--</a>-->
 <!--- End of Top Scroll -->
 
 <!--- Script Source Files -->
