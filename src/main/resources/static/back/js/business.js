@@ -1,12 +1,12 @@
 function updateTable(updateUrl, fromName,) {
     $(".btn-update").click(function () {
         $.post(updateUrl + this.value, null, function (data) {
-            let formObj = $("form[name=" + fromName + "] input");
-            Array.of(...formObj).forEach(i => {
+            Array.of(...$("form[name=" + fromName + "] input")).forEach(i => {
                 if (i.type != "file") {
                     i.value = data[i.name] != undefined ? data[i.name] : "";
                 }
             });
+           Array.of(... $("textarea")).forEach(i => i.innerText = data[i.name]);
         }, "json");
     });
 }

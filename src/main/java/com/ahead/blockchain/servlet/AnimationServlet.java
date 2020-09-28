@@ -27,4 +27,6 @@ public class AnimationServlet {
     public Animation getAnimationById(Long id){
         return animationDao.findById(id).orElseGet(() -> new Animation());
     }
+
+    public List<Animation> findAll(){return animationDao.findAll();}
 }

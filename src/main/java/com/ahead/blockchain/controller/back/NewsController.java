@@ -13,26 +13,27 @@ public class NewsController {
 
     @Autowired
     private NewsServlet newsServlet;
+
     @GetMapping("/list")
-    public String newsList(Model model){
+    public String newsList(Model model) {
         model.addAttribute("newsList", newsServlet.newsList());
         return "back/newslist";
     }
 
     @PostMapping("/byId/{id}")
     @ResponseBody
-    public News getNewsById(@PathVariable("id") Long id){
+    public News getNewsById(@PathVariable("id") Long id) {
         return newsServlet.getNewsById(id);
     }
 
     @PostMapping("/save")
-    public String saveNews(News news){
+    public String saveNews(News news) {
         newsServlet.insertOrUpdate(news);
         return "redirect:/news/list";
     }
 
     @GetMapping("/del/{id}")
-    public String delNews(@PathVariable("id") Long id){
+    public String delNews(@PathVariable("id") Long id) {
         newsServlet.delById(id);
         return "redirect:/news/list";
     }

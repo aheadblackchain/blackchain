@@ -1,7 +1,5 @@
 package com.ahead.blockchain.entity;
 
-import org.springframework.data.annotation.Id;
-
 import javax.persistence.*;
 import java.util.Date;
 
@@ -11,12 +9,12 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "tab_curriculum_system")
-public class Curriculum {
+public class Curriculum{
 
-    @javax.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(name = "curriculum_image")
     private String curriculumImage;
 

@@ -1,7 +1,6 @@
 package com.ahead.blockchain.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -9,7 +8,6 @@ import java.util.Date;
 @Entity
 @Table(name = "tab_home")
 public class Home {
-    @javax.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

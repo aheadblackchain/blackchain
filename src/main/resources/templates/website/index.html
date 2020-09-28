@@ -136,12 +136,12 @@
     <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(website/images/bg_3.jpg);"
              data-stellar-background-ratio="0.5">
         <div class="container">
-            <div class="row justify-content-center mb-5 pb-2 d-flex">
+            <div class="row justify-content-center mb-5 pb-2 d-flex" th:each="animation:${animationList}">
                 <div class="col-md-6 align-items-stretch d-flex">
                     <div class="img img-video d-flex align-items-center"
                          style="background-image: url(website/images/about-2.jpg);">
                         <div class="video justify-content-center">
-                            <a href="website/video/qukuailzs.mp4"
+                            <a th:href="${animation.talentsVideo}"
                                class="icon-video popup-vimeo d-flex justify-content-center align-items-center">
                                 <span class="ion-ios-play"></span>
                             </a>
@@ -149,10 +149,8 @@
                     </div>
                 </div>
                 <a href="/blackChainRecommendVideo" class="col-md-6 heading-section heading-section-white ftco-animate pl-lg-5 pt-md-0 pt-5">
-                    <h2 class="mb-4">区块链学院</h2>
-                    <p>我们打造了一个充满活力的学习环境。此外，学院还充分利用先锋软件集团的优势，积累了丰富的创业经验。自建立以来，区块链学院坚持在课程设置方面的创新，使之能够反映商业市场和社会发展的新趋势和新要求。
-                    </p>
-                    <p>我们希望能够在这里为大家带来国内外的最新动态，与大家分享我们的在各个领域的研究成果。更为重要的是，每个人都具有创造未来、改变世界的潜力，我们期待着与每一个你进行交流。</p>
+                    <h2 class="mb-4" th:text="${animation.title}"></h2>
+                    <p th:text="${animation.particulars}"></p>
                 </a>
             </div>
         </div>
@@ -272,12 +270,12 @@
                     <div class="os-animation" data-animation="fadeInLeft">
                         <div class="pricing-column text-center">
                             <h3 th:text="${project.title}"></h3>
-                            <p th:text="${project.technology}"></p>
+                            <p th:text="${project.description}"></p>
                             <div class="pricing-features  clients">
                                 <img th:src="${project.proImg}" alt="">
                             </div>
                             <!-- <h1>$49</h1> -->
-                            <a class="btn btn-secondary btn-sm" href="#contact" th:text="${project.description}"></a>
+                            <a class="btn btn-secondary btn-sm" href="#contact" th:text="${project.technology}"></a>
                         </div>
                     </div>
                 </div>
@@ -317,7 +315,6 @@
                 <!--- End Animation -->
             </div>
             <!--- End col-md-12 -->
-
         </div>
         <!--- End of Row Light -->
 

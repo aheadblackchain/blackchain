@@ -2,7 +2,6 @@ package com.ahead.blockchain.controller.back;
 
 import com.ahead.blockchain.entity.Talents;
 import com.ahead.blockchain.servlet.TalentsServlet;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,8 +19,8 @@ public class TalentsController {
 
     @GetMapping("/list")
     public String talentList(Model model) {
-        model.addAttribute("talentsList1", talentsServlet.talentsList());
-        return "back/talents";
+        model.addAttribute("talentsList", talentsServlet.talentsList());
+        return "back/talentslist";
     }
 
     @PostMapping("/ById/{id}")

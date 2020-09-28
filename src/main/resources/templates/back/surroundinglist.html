@@ -106,7 +106,7 @@
                                     <td th:text="${surrounding.surbelong}"></td>
                                     <td th:text="${surrounding.surdescribe}"></td>
                                     <td>
-                                        <img th:src="${surrounding.surimg}" >
+                                        <img th:src="${surrounding.surimg}" width="300px">
                                     </td>
                                     <td>
                                         <button class="btn btn-warning btn-update" th:value="${surrounding.id}"
@@ -153,7 +153,7 @@
                     <div class="form-group row">
                         <label class="col-form-label col-sm-3 text-sm-right">描述</label>
                         <div class="col-sm-5">
-                            <input type="text" class="form-control" placeholder="描述" name="surdescribe" required>
+                            <textarea class="form-control" name="surdescribe" rows="10"></textarea>
                         </div>
                     </div>
 

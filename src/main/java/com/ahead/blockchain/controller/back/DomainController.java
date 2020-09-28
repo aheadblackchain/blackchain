@@ -13,26 +13,27 @@ public class DomainController {
 
     @Autowired
     private DomainServlet domainServlet;
+
     @GetMapping("/list")
-    public String domainList(Model model){
+    public String domainList(Model model) {
         model.addAttribute("domainList", domainServlet.domainList());
         return "back/domainlist";
     }
 
     @PostMapping("/byId/{id}")
     @ResponseBody
-    public Domain getDomainById(@PathVariable("id") Long id){
+    public Domain getDomainById(@PathVariable("id") Long id) {
         return domainServlet.getDomainById(id);
     }
 
     @PostMapping("/save")
-    public String saveDomain(Domain domain){
+    public String saveDomain(Domain domain) {
         domainServlet.insertOrUpdate(domain);
         return "redirect:/domain/list";
     }
 
     @GetMapping("/del/{id}")
-    public String delDomain(@PathVariable("id") Long id){
+    public String delDomain(@PathVariable("id") Long id) {
         domainServlet.delById(id);
         return "redirect:/domain/list";
     }

@@ -5,7 +5,10 @@ import com.ahead.blockchain.servlet.CurriculumServlet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * @author solfeng
@@ -15,23 +18,27 @@ import org.springframework.web.bind.annotation.*;
 public class CurriculumController {
     @Autowired
     private CurriculumServlet curriculumServlet;
+
     @GetMapping("/curriculumList")
-    public String curriculumLsit(Model model){
-        model.addAttribute("curriculumList1",curriculumServlet.curriculumList());
+    public String curriculumLsit(Model model) {
+        model.addAttribute("curriculumList1", curriculumServlet.curriculumList());
         return "back/curriculum";
     }
+
     @PostMapping("/getCurriculumById/{id}")
     @ResponseBody
-    public Curriculum getCurriculumById(@PathVariable("id") Long id){
+    public Curriculum getCurriculumById(@PathVariable("id") Long id) {
         return curriculumServlet.getCurriculumById(id);
     }
+
     @PostMapping("/saveCurriculum")
-    public String saveCurriculum(Curriculum curriculum){
+    public String saveCurriculum(Curriculum curriculum) {
         curriculumServlet.inserOrUpdate(curriculum);
         return "redirect:/curriculumList";
     }
+
     @GetMapping("/delCurriculum/{id}")
-    public String delCurriculum(@PathVariable("id") Long id){
+    public String delCurriculum(@PathVariable("id") Long id) {
         curriculumServlet.delById(id);
         return "redirect:/curriculumList";
     }

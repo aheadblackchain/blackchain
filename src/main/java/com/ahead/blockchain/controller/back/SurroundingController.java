@@ -13,26 +13,27 @@ public class SurroundingController {
 
     @Autowired
     private SurroundingServlet surroundingServlet;
+
     @GetMapping("/list")
-    public String surroundingList(Model model){
+    public String surroundingList(Model model) {
         model.addAttribute("surroundingList", surroundingServlet.surroundingList());
         return "back/surroundinglist";
     }
 
     @PostMapping("/byId/{id}")
     @ResponseBody
-    public Surrounding getSurroundingById(@PathVariable("id") Long id){
+    public Surrounding getSurroundingById(@PathVariable("id") Long id) {
         return surroundingServlet.getSurroundingById(id);
     }
 
     @PostMapping("/save")
-    public String saveSurrounding(Surrounding surrounding){
+    public String saveSurrounding(Surrounding surrounding) {
         surroundingServlet.insertOrUpdate(surrounding);
         return "redirect:/surrounding/list";
     }
 
     @GetMapping("/del/{id}")
-    public String delSurrounding(@PathVariable("id") Long id){
+    public String delSurrounding(@PathVariable("id") Long id) {
         surroundingServlet.delById(id);
         return "redirect:/surrounding/list";
     }
