@@ -189,7 +189,7 @@
                 <h3 class="heading">专业领域</h3>
                 <div class="heading-underline"></div>
             </div>
-            <div class="col-md-4" th:each="domain:${domainList}">
+            <div class="col-md-4" th:each="domain:${domainList1}">
                 <div class="os-animation" data-animation="fadeInLeft">
                     <h3 th:text="${domain.name}"></h3>
                     <div class="feature">
@@ -301,7 +301,7 @@
             <div class="col-md-12">
                 <div class="os-animation" data-animation="fadeInUp">
                     <div id="team-slider" class="owl-carousel owl-theme">
-                        <div class="card text-center" th:each="news:${newsList}">
+                        <div class="card text-center" th:each="news:${newsList1}">
                             <img class="card-img-top" th:src="${news.newimg}" alt="">
                             <div class="card-body">
                                 <h4 th:text="${news.title}"></h4>
@@ -344,7 +344,7 @@
                 <div class="os-animation" data-animation="fadeInUp">
                     <div id="clients-slider" class="owl-carousel owl-theme">
 
-                        <div class="row clients" th:each="surrounding:${surroundingList}">
+                        <div class="row clients" th:each="surrounding:${surroundingList1}">
                             <div class="col-md-4">
                                 <img th:src="${surrounding.surimg}" alt="">
                             </div>

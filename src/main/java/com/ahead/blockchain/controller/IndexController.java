@@ -31,10 +31,17 @@ public class IndexController {
         model.addAttribute("animationList", animationServlet.findAll());
         model.addAttribute("talentList", talentsServlet.findAll());
         model.addAttribute("curriculumList", curriculumServlet.findAll());
+<<<<<<< Updated upstream
         model.addAttribute("projectList", projectServlet.findAll());
         model.addAttribute("domainList", domainServlet.domainList());
         model.addAttribute("newsList", newsServlet.newsList());
         model.addAttribute("surroundingList", surroundingServlet.surroundingList());
+=======
+        model.addAttribute("projectList",projectServlet.findAll());
+        model.addAttribute("domainList1",domainServlet.domainList());
+        model.addAttribute("newsList1",newsServlet.newsList());
+        model.addAttribute("surroundingList1",surroundingServlet.surroundingList());
+>>>>>>> Stashed changes
         return "website/index";
     }
 }

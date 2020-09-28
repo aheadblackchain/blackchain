@@ -11,16 +11,15 @@ public class News {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
+    private String title;
+    @Column(name = "new_time")
+    private String newtime;
+
+    private String detail;
     @Column(name = "new_img")
     private String newimg;
 
-    private String title;
-
-
-    private String detail;
-
-    @Column(name = "new_time")
-    private String newtime;
 
     @Column(name = "create_user")
     private Long createUser;
