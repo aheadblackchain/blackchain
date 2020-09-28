@@ -22,7 +22,7 @@ public class CurriculumController {
     @GetMapping("/curriculumList")
     public String curriculumLsit(Model model) {
         model.addAttribute("curriculumList1", curriculumServlet.curriculumList());
-        return "back/curriculum";
+        return "curriculumlist";
     }
 
     @PostMapping("/getCurriculumById/{id}")

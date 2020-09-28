@@ -33,7 +33,7 @@ public class IndexBaseController {
 
     @GetMapping("/blackChainRecommendImg")
     public String blackChainRecommendimg() {
-        return "website/blackchainrecommendimg";
+        return "recommendimg";
     }
 
     @GetMapping("/blackChainRecommendVideo")
