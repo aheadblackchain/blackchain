@@ -1,8 +1,10 @@
 package com.ahead.blockchain.servlet;
 
 import com.ahead.blockchain.dao.CurriculumDao;
-import com.ahead.blockchain.entity.Curriculum;
-import com.ahead.blockchain.entity.Home;
+import com.ahead.blockchain.dao.CurriculumDetailDao;
+import com.ahead.blockchain.dao.CurriculumImgDao;
+import com.ahead.blockchain.dao.CurriculumTitleDao;
+import com.ahead.blockchain.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,19 +18,26 @@ import java.util.List;
 public class CurriculumServlet {
     @Autowired
     private CurriculumDao curriculumDao;
-    public Curriculum inserOrUpdate(Curriculum curriculum){
+
+    public Curriculum inserOrUpdate(Curriculum curriculum) {
         return curriculumDao.save(curriculum);
     }
-    public void delById(Long id){
+
+    public void delById(Long id) {
         curriculumDao.deleteById(id);
     }
-    public List<Curriculum> curriculumList(){
+
+    public List<Curriculum> curriculumList() {
         return curriculumDao.findAll();
     }
-    public Curriculum getCurriculumById(Long id){
+
+    public Curriculum getCurriculumById(Long id) {
         return curriculumDao.findById(id).orElseGet(() -> new Curriculum());
     }
-    public List<Curriculum> findAll(){
+
+    public List<Curriculum> findAll() {
         return curriculumDao.findAll();
     }
+
+
 }

@@ -20,7 +20,7 @@ public class ProjectController {
     @GetMapping("/List")
     public String projectList(Model model) {
         model.addAttribute("projectList1", projectServlet.projectList());
-        return "projectlist";
+        return "back/projectlist";
     }
 
     @PostMapping("/ById/{id}")

@@ -2,6 +2,8 @@ package com.ahead.blockchain.entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author solfeng
@@ -23,6 +25,20 @@ public class Curriculum{
 
     @Column(name = "create_time")
     private Date createTime;
+
+
+
+    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL)
+    private Set<CurriculumDetail> curriculumDetails;
+    public Curriculum() {
+        super();
+    }
+
+    public Curriculum(String curriculumImage) {
+        super();
+        this.curriculumImage = curriculumImage;
+        this.curriculumDetails = new HashSet<>();
+    }
 
     public Long getId() {
         return id;
