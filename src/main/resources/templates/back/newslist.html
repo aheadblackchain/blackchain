@@ -21,8 +21,7 @@
     <link rel="stylesheet" href="/back/css/colors.css" class="theme-settings-colors-css">
     <link rel="stylesheet" href="/back/css/uikit.css">
     <link rel="stylesheet" href="/back/css/demo.css">
-    <script src="/back/js/layout-helpers.js"></script>
-    <script src="/back/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="/back/css/dropzone.css">
 </head>
 
 <body>
@@ -107,19 +106,15 @@
                                     <td th:text="${news.title}"></td>
                                     <td th:text="${news.newtime}"></td>
                                     <td th:text="${news.detail}"></td>
-<<<<<<< Updated upstream
                                     <td>
                                         <img th:src="${news.newimg}" width="300px">
-=======
-                                    <td width="60px" >
-                                        <img th:src="${news.newimg}" >
->>>>>>> Stashed changes
                                     </td>
                                     <td>
                                         <button class="btn btn-warning btn-update" th:value="${news.id}"
                                                 data-toggle="modal" data-target="#modals-fill-in">修改
                                         </button>
-                                        <button id="bootbox-confirm" class="btn btn-danger btn-delete" th:value="${news.id}">
+                                        <button id="bootbox-confirm" class="btn btn-danger btn-delete"
+                                                th:value="${news.id}">
                                             删除
                                         </button>
                                     </td>
@@ -167,17 +162,29 @@
                     <div class="form-group row">
                         <label class="col-form-label col-sm-3 text-sm-right">详情</label>
                         <div class="col-sm-5">
-                            <textarea class="form-control" name="detail" rows="10"></textarea>
+                            <input type="button" id="addDetail" value="添加段落" class="btn btn-primary"/>
                         </div>
                     </div>
-
-                    <div class="form-group row" width="60px" >
-                        <label class="col-form-label col-sm-3 text-sm-right">图片</label>
-                        <div class="col-sm-5">
-                            <input type="file" id="fileUpload"
-                                   accept="image/* "
-                                   multiple/>
-                            <input type="hidden" name="newimg">
+                    <hr/>
+                    <div class="form-group row" width="60px">
+                        <label class="col-form-label col-sm-8 text-sm-right">
+                            <h3 class="card-header">
+                                图片批量上传
+                            </h3>
+                        </label>
+                        <div class="col-sm-12">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <div class="dropzone needsclick" id="dropzone-demo">
+                                        <div class="dz-message needsclick">
+                                            Drop files here or click to upload
+                                        </div>
+                                        <div class="fallback">
+                                            <input name="file" type="file" id="fileUpload" multiple>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -193,11 +200,16 @@
 </div>
 <!--end update user -->
 <!-- Core scripts -->
+<script src="/back/js/layout-helpers.js"></script>
+<script src="/back/js/jquery.min.js"></script>
 <script src="/back/js/popper.js"></script>
 <script src="/back/js/bootstrap.js"></script>
 <script src="/back/js/sidenav.js"></script>
 <script src="/back/js/perfect-scrollbar.js"></script>
 <script src="/back/js/bootbox.js"></script>
+<script src="/back/js/dropzone.js"></script>
+<script src="/back/js/flow.js"></script>
+<script src="/back/js/forms_file-upload.js"></script>
 <!-- Libs -->
 <!-- Demo -->
 <script src="/back/js/demo.js"></script>

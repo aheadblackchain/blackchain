@@ -2,6 +2,7 @@ package com.ahead.blockchain.entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Table(name = "tab_news")
 @Entity
@@ -26,6 +27,9 @@ public class News {
 
     @Column(name = "create_time")
     private Date createTime;
+
+    @Transient
+    private List<String> detailList;
 
     public Long getId() {
         return id;
@@ -81,5 +85,13 @@ public class News {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public List<String> getDetailList() {
+        return detailList;
+    }
+
+    public void setDetailList(List<String> detailList) {
+        this.detailList = detailList;
     }
 }

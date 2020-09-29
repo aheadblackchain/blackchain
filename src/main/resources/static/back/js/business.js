@@ -2,7 +2,7 @@ function updateTable(updateUrl, fromName,) {
     $(".btn-update").click(function () {
         $.post(updateUrl + this.value, null, function (data) {
             Array.of(...$("form[name=" + fromName + "] input")).forEach(i => {
-                if (i.type != "file") {
+                if (i.type != "file" || i.type != "button") {
                     i.value = data[i.name] != undefined ? data[i.name] : "";
                 }
             });
@@ -32,3 +32,12 @@ function delTable(delUrl) {
         });
     });
 }
+$(document).ready(function () {
+    $("#addDetail").click(function () {
+        let textNode = document.createElement("textarea");
+        textNode.setAttribute("class","form-control");
+        textNode.setAttribute("name", "detailList");
+        textNode.setAttribute("rows", "10");
+        this.parentNode.insertBefore(textNode,this);
+    });
+});
