@@ -14,6 +14,12 @@ public class SurroundingController {
     @Autowired
     private SurroundingServlet surroundingServlet;
 
+    @GetMapping("/info")
+    public String blackChainRecommendimg(Model model) {
+        model.addAttribute("surroundingList", surroundingServlet.surroundingList());
+        return "website/surroundingimg";
+    }
+
     @GetMapping("/list")
     public String surroundingList(Model model) {
         model.addAttribute("surroundingList", surroundingServlet.surroundingList());

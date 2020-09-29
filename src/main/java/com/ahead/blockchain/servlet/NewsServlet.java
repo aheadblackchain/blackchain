@@ -12,6 +12,7 @@ public class NewsServlet {
     @Autowired
     private NewsDao newsDao;
 
+
     public News insertOrUpdate(News news){
         return newsDao.save(news);
     }

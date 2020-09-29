@@ -343,8 +343,7 @@
             <div class="col-md-12">
                 <div class="os-animation" data-animation="fadeInUp">
                     <div id="clients-slider" class="owl-carousel owl-theme">
-
-                        <div class="row clients" th:each="surrounding:${surroundingList}">
+                        <a href="/surrounding/info" class="row clients" th:each="surrounding:${surroundingList}">
                             <div class="col-md-4">
                                 <img th:src="${surrounding.surimg}" alt="">
                             </div>
@@ -356,7 +355,7 @@
                                     <cite th:text="${surrounding.surbelong}"></cite>
                                 </blockquote>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <!--- End Clients Slider -->
                 </div>

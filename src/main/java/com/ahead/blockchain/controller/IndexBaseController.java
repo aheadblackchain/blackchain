@@ -31,10 +31,6 @@ public class IndexBaseController {
         return "website/newinfo";
     }
 
-    @GetMapping("/blackChainRecommendImg")
-    public String blackChainRecommendimg() {
-        return "recommendimg";
-    }
 
     @GetMapping("/blackChainRecommendVideo")
     public String blackChainRecommend() {

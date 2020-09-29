@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>区块链学院 - 江西软件职业技术大学</title>
+    <link rel="shortcut icon" href="/website/img/favicon.ico">
+    <link rel="stylesheet" href="/website/css/bootstrap.css">
+    <link rel="stylesheet" href="/website/css/home-style.css">
+    <link rel="stylesheet" href="/website/css/fixed.css">
+    <link rel="stylesheet" href="/website/css/style.css">
+    <link rel="stylesheet" href="/website/css/appwork.css">
+    <link rel="stylesheet" href="/website/css/theme-corporate.css" class="theme-settings-theme-css">
+    <link rel="stylesheet" href="/website/css/uikit.css">
+    <link rel="stylesheet" href="/website/css/portfolio.css">
+</head>
+<body data-spy="scroll" data-target="#navbarResponsive">
+<iframe src="/top" frameborder="0" scrolling="no" class="iframe-top"></iframe>
+<!---start --->
+<div id="portfolio-thumbnails" class="row big-top">
+    <!-- Add this element to properly relayout grid -->
+<!--    <div class="portfolio-thumbnails-sizer col-sm-6 col-lg-4 position-absolute mb-4"></div>-->
+
+    <div class="portfolio-thumbnails-item col-sm-6 col-lg-4 mb-4" data-tag="branding" th:each="surrounding:${surroundingList}">
+        <a href="javascript:;" class="portfolio-thumbnail img-thumbnail">
+            <span class="img-thumbnail-overlay bg-dark opacity-75"></span>
+            <span class="img-thumbnail-content d-flex flex-column justify-content-between text-white p-4">
+              <span class="d-block">
+                <span class="d-block text-tiny opacity-75" th:text="${surrounding.surbelong}"></span>
+              </span>
+              <span class="d-block text-tiny" th:text="${surrounding.surdescribe}"></span>
+            </span>
+            <span class="portfolio-thumbnail-img ui-square ui-bg-cover">
+                <img th:src="${surrounding.surimg}">
+            </span>
+        </a>
+    </div>
+</div>
+<iframe src="/footer" width="100%" frameborder="0" scrolling="no" height="580px"></iframe>
+<!--- Script Source Files -->
+<script src="/website/js/jquery.min.js"></script>
+</body>
+</html>

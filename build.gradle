@@ -24,7 +24,14 @@ dependencies {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
 }
-
+jar {
+    baseName = 'ahead'
+    version = '0.0.1'
+    manifest {
+        attributes "Manifest-Version": 1.0,
+                'Main-Class': 'com.ahead.blockchain'
+    }
+}
 test {
     useJUnitPlatform()
 }
