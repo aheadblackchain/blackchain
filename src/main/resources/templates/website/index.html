@@ -299,29 +299,6 @@
         </div>
         <!--- End of Row Light -->
 	<!--- Start Fixed Background IMG Light -->
-	<div class="fixed-background">
-		<div class="row light">
-			<div class="col-12 os-animation" data-animation="fadeInUp">
-				<h3 class="heading">新闻</h3>
-				<div class="heading-underline"></div>
-			</div>
-			<div class="col-md-12">
-				<div class="os-animation" data-animation="fadeInUp">
-					<div class="owl-carousel owl-theme" >
-
-						<div class="card text-center"  th:each="news:${newsList}">
-							<img class="card-img-top" th:src="${news.newimg}" alt="">
-							<div class="card-body">
-								<h4 th:text="${news.title}"></h4>
-								<h5 th:text="${news.newtime}"></h5>
-								<p class="lead" th:text="${news.detail}"></p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 </div>
 <!--- End Team Section -->
 

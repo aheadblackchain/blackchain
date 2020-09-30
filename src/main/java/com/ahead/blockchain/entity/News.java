@@ -36,6 +36,9 @@ public class News {
     @Transient
     private List<String> imgList;
 
+    public News() {
+    }
+
     public Long getId() {
         return id;
     }
