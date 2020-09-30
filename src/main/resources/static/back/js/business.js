@@ -33,11 +33,13 @@ function delTable(delUrl) {
     });
 }
 $(document).ready(function () {
+    let i = 0;
     $("#addDetail").click(function () {
         let textNode = document.createElement("textarea");
         textNode.setAttribute("class","form-control");
         textNode.setAttribute("name", "detailList");
         textNode.setAttribute("rows", "10");
         this.parentNode.insertBefore(textNode,this);
+        i++;
     });
 });

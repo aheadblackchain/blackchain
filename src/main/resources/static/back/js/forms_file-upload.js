@@ -25,7 +25,12 @@ $(function () {
                 if (data) {
                     file.status =  Dropzone.SUCCESS;
                     self.emit('success', file, 'success', null);
-                    // $("input[name='newimg']")[0].value = data;
+                    let imgElement = document.createElement("input");
+                    imgElement.setAttribute("name", "imgList");
+                    imgElement.setAttribute("type", "hidden");
+                    imgElement.setAttribute("value", data);
+                    let addImg = $("#addImg")[0];
+                    addImg.parentNode.insertBefore(imgElement, addImg);
                 } else {
                     file.status =  Dropzone.ERROR;
                     self.emit('error', file, 'Some upload error', null);

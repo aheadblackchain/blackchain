@@ -31,6 +31,9 @@ public class News {
     @Transient
     private List<String> detailList;
 
+    @Transient
+    private List<String> imgList;
+
     public Long getId() {
         return id;
     }
@@ -93,5 +96,13 @@ public class News {
 
     public void setDetailList(List<String> detailList) {
         this.detailList = detailList;
+    }
+
+    public List<String> getImgList() {
+        return imgList;
+    }
+
+    public void setImgList(List<String> imgList) {
+        this.imgList = imgList;
     }
 }
