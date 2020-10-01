@@ -16,12 +16,6 @@ public class News {
     private String title;
     @Column(name = "new_time")
     private String newtime;
-
-    private String detail;
-    @Column(name = "new_img")
-    private String newimg;
-
-
     @Column(name = "create_user")
     private Long createUser;
 
@@ -42,14 +36,6 @@ public class News {
         this.id = id;
     }
 
-    public String getNewimg() {
-        return newimg;
-    }
-
-    public void setNewimg(String newimg) {
-        this.newimg = newimg;
-    }
-
     public String getTitle() {
         return title;
     }
@@ -64,14 +50,6 @@ public class News {
 
     public void setNewtime(String newtime) {
         this.newtime = newtime;
-    }
-
-    public String getDetail() {
-        return detail;
-    }
-
-    public void setDetail(String detail) {
-        this.detail = detail;
     }
 
     public Long getCreateUser() {

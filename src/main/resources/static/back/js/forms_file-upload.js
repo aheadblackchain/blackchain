@@ -29,8 +29,7 @@ $(function () {
                     imgElement.setAttribute("name", "imgList");
                     imgElement.setAttribute("type", "hidden");
                     imgElement.setAttribute("value", data);
-                    let addImg = $("#addImg")[0];
-                    addImg.parentNode.insertBefore(imgElement, addImg);
+                    self.element.children[self.element.children.length-1].appendChild(imgElement);
                 } else {
                     file.status =  Dropzone.ERROR;
                     self.emit('error', file, 'Some upload error', null);
