@@ -95,8 +95,6 @@
                                 <tr>
                                     <th>标题</th>
                                     <th>新闻时间</th>
-                                    <th>详情</th>
-                                    <th>图片</th>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
@@ -104,10 +102,12 @@
                                 <tr class="odd gradeA" th:each="news:${newsList}">
                                     <td th:text="${news.title}"></td>
                                     <td th:text="${news.newtime}"></td>
+
                                     <td th:text="${news.getDetailList()}"></td>
                                     <td>
                                         <img th:src="${news.newimg}" width="300px">
                                     </td>
+
                                     <td>
                                         <button class="btn btn-warning btn-update" th:value="${news.id}"
                                                 data-toggle="modal" data-target="#modals-fill-in">修改
@@ -168,16 +168,13 @@
                     <div class="form-group row" width="60px">
                         <label class="col-form-label col-sm-8 text-sm-right">
                             <h3 class="card-header" id="addImg">
-                                图片批量上传
+                                点击上传图片
                             </h3>
                         </label>
                         <div class="col-sm-12">
                             <div class="card mb-4">
-                                <div class="card-body">
+                                <div class="card-body" id="old-img">
                                     <div class="dropzone needsclick" id="dropzone-demo">
-                                        <div class="dz-message needsclick">
-                                            Drop files here or click to upload
-                                        </div>
                                         <div class="fallback">
                                             <input name="file" type="file" id="fileUpload" multiple>
                                         </div>
@@ -199,6 +196,7 @@
 </div>
 <!--end update user -->
 <!-- Core scripts -->
+
 <script src="/back/js/layout-helpers.js"></script>
 <script src="/back/js/jquery.min.js"></script>
 <script src="/back/js/popper.js"></script>
@@ -206,13 +204,13 @@
 <script src="/back/js/sidenav.js"></script>
 <script src="/back/js/perfect-scrollbar.js"></script>
 <script src="/back/js/bootbox.js"></script>
+<script src="/back/js/businessmany.js"></script>
 <script src="/back/js/dropzone.js"></script>
 <script src="/back/js/flow.js"></script>
 <script src="/back/js/forms_file-upload.js"></script>
 <!-- Libs -->
 <!-- Demo -->
 <script src="/back/js/demo.js"></script>
-<script src="/back/js/business.js"></script>
 <script src="/back/js/news.js"></script>
 </body>
 

@@ -19,6 +19,10 @@ public class NewsDetail {
 
     }
 
+    public NewsDetail(Long newsId){
+        this.newsId = newsId;
+    }
+
     public NewsDetail(String newsDetail, Long newsId){
         this.newsDetail = newsDetail;
         this.newsId = newsId;

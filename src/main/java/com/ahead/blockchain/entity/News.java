@@ -18,8 +18,10 @@ public class News {
     private String newtime;
 
 
+
     @Column(name = "new_img")
     private String newimg;
+
 
 
     @Column(name = "create_user")
@@ -42,14 +44,6 @@ public class News {
         this.id = id;
     }
 
-    public String getNewimg() {
-        return newimg;
-    }
-
-    public void setNewimg(String newimg) {
-        this.newimg = newimg;
-    }
-
     public String getTitle() {
         return title;
     }
@@ -65,7 +59,6 @@ public class News {
     public void setNewtime(String newtime) {
         this.newtime = newtime;
     }
-
 
 
     public Long getCreateUser() {

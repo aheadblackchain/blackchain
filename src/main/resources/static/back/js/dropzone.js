@@ -479,7 +479,7 @@ function(e, t) {
                         value: function() {
                             var e = this;
                             "form" === this.element.tagName && this.element.setAttribute("enctype", "multipart/form-data"),
-                            this.element.classList.contains("dropzone") && !this.element.querySelector(".dz-message") && this.element.appendChild(o.createElement('<div class="dz-default dz-message"><span>' + this.options.dictDefaultMessage + "</span></div>")),
+                            // this.element.classList.contains("dropzone") && !this.element.querySelector(".dz-message") && this.element.appendChild(o.createElement('<div class="dz-default dz-message"><span>' + this.options.dictDefaultMessage + "</span></div>")),
                             this.clickableElements.length &&
                             function t() {
                                 return e.hiddenFileInput && e.hiddenFileInput.parentNode.removeChild(e.hiddenFileInput),

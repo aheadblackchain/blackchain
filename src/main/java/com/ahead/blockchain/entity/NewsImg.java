@@ -18,6 +18,11 @@ public class NewsImg {
     public NewsImg(){
 
     }
+
+    public NewsImg(Long newsId){
+        this.newsId = newsId;
+    }
+
     public NewsImg(String newsImg, Long newsId){
         this.newsImg = newsImg;
         this.newsId = newsId;
