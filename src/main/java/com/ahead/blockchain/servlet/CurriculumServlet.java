@@ -3,12 +3,12 @@ package com.ahead.blockchain.servlet;
 import com.ahead.blockchain.dao.CurriculumDao;
 import com.ahead.blockchain.dao.CurriculumDetailDao;
 import com.ahead.blockchain.dao.CurriculumImgDao;
-import com.ahead.blockchain.dao.CurriculumTitleDao;
 import com.ahead.blockchain.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author solfeng
@@ -18,9 +18,22 @@ import java.util.List;
 public class CurriculumServlet {
     @Autowired
     private CurriculumDao curriculumDao;
+    @Autowired
+    private CurriculumDetailDao curriculumDetailDao;
+    @Autowired
+    private CurriculumImgDao curriculumImgDao;
+
 
     public Curriculum inserOrUpdate(Curriculum curriculum) {
-        return curriculumDao.save(curriculum);
+        Curriculum CurriculumInfo = curriculumDao.save(curriculum);
+        if (curriculum.getDetaillList() !=null){
+             curriculumDetailDao.saveAll(curriculum.getDetaillList().stream().map(i -> new CurriculumDetail(i,CurriculumInfo.getId())).collect(Collectors.toList()));
+        }
+        if (curriculum.getImgList() !=null){
+            curriculumImgDao.saveAll(curriculum.getImgList().stream().map(i -> new CurriculumImg(i,CurriculumInfo.getId())).collect(Collectors.toList()));
+        }
+        
+        return CurriculumInfo;
     }
 
     public void delById(Long id) {
@@ -38,6 +51,5 @@ public class CurriculumServlet {
     public List<Curriculum> findAll() {
         return curriculumDao.findAll();
     }
-
 
 }

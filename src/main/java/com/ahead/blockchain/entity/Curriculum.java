@@ -3,6 +3,7 @@ package com.ahead.blockchain.entity;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -26,19 +27,11 @@ public class Curriculum{
     @Column(name = "create_time")
     private Date createTime;
 
+    @Transient
+    private List<String> detaillList;
 
-
-    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL)
-    private Set<CurriculumDetail> curriculumDetails;
-    public Curriculum() {
-        super();
-    }
-
-    public Curriculum(String curriculumImage) {
-        super();
-        this.curriculumImage = curriculumImage;
-        this.curriculumDetails = new HashSet<>();
-    }
+    @Transient
+    private List<String> imgList;
 
     public Long getId() {
         return id;
@@ -70,5 +63,21 @@ public class Curriculum{
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public List<String> getDetaillList() {
+        return detaillList;
+    }
+
+    public void setDetaillList(List<String> detaillList) {
+        this.detaillList = detaillList;
+    }
+
+    public List<String> getImgList() {
+        return imgList;
+    }
+
+    public void setImgList(List<String> imgList) {
+        this.imgList = imgList;
     }
 }

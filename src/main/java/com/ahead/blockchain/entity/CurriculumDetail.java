@@ -2,6 +2,7 @@ package com.ahead.blockchain.entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author solfeng
@@ -13,71 +14,78 @@ import java.util.Date;
 public class CurriculumDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long did;
+    private Long id;
 
-    private String datail;
+    @Column(name = "title")
+    private String currTitle;
 
-    @Column(name = "create_user")
-    private Long createUser;
+    @Column(name = "detail")
+    private String currDatail;
 
-    @Column(name = "create_time")
-    private Date createTime;
+    @Column(name = "address")
+    private String currAddress;
 
-    @ManyToOne
-    @JoinColumn(name = "tab_curriculum_detailinfo_ibfk_1")
-    private Curriculum curriculum;
+    @Column(name = "cur_id")
+    private Long curId;
 
-    public CurriculumDetail(){
-        super();
-    }
-    public CurriculumDetail(String datail){
-        super();
-        this.datail=datail;
-    }
-    public CurriculumDetail(String datail,Curriculum curriculum){
-        super();
-        this.datail=datail;
-        this.curriculum=curriculum;
+
+
+    public CurriculumDetail() {
     }
 
-    public Long getDid() {
-        return did;
+
+
+    public CurriculumDetail(Long id, String currTitle, String currDatail, String currAddress, Long curId) {
+        this.id = id;
+        this.currTitle = currTitle;
+        this.currDatail = currDatail;
+        this.currAddress = currAddress;
+        this.curId = curId;
     }
 
-    public void setDid(Long did) {
-        this.did = did;
+    public CurriculumDetail(String i, Long id) {
+
     }
 
-    public String getDatail() {
-        return datail;
+
+    public Long getId() {
+        return id;
     }
 
-    public void setDatail(String datail) {
-        this.datail = datail;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public Long getCreateUser() {
-        return createUser;
+    public String getCurrTitle() {
+        return currTitle;
     }
 
-    public void setCreateUser(Long createUser) {
-        this.createUser = createUser;
+    public void setCurrTitle(String currTitle) {
+        this.currTitle = currTitle;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public String getCurrDatail() {
+        return currDatail;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setCurrDatail(String currDatail) {
+        this.currDatail = currDatail;
     }
 
-    public Curriculum getCurriculum() {
-        return curriculum;
+    public String getCurrAddress() {
+        return currAddress;
     }
 
-    public void setCurriculum(Curriculum curriculum) {
-        this.curriculum = curriculum;
+    public void setCurrAddress(String currAddress) {
+        this.currAddress = currAddress;
+    }
+
+    public Long getCurId() {
+        return curId;
+    }
+
+    public void setCurId(Long curId) {
+        this.curId = curId;
     }
 }
 

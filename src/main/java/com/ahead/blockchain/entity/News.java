@@ -17,7 +17,7 @@ public class News {
     @Column(name = "new_time")
     private String newtime;
 
-    private String detail;
+
     @Column(name = "new_img")
     private String newimg;
 
@@ -66,13 +66,7 @@ public class News {
         this.newtime = newtime;
     }
 
-    public String getDetail() {
-        return detail;
-    }
 
-    public void setDetail(String detail) {
-        this.detail = detail;
-    }
 
     public Long getCreateUser() {
         return createUser;

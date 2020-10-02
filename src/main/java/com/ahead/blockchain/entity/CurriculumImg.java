@@ -2,6 +2,7 @@ package com.ahead.blockchain.entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author solfeng
@@ -12,46 +13,51 @@ import java.util.Date;
 public class CurriculumImg {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    private Long iid;
 
-    private String img;
+    @Column(name = "img")
+    private String curImg;
 
-    @Column(name = "create_user")
-    private Long createUser;
+    @Column(name = "cur_id")
+    private Long curId;
 
-    @Column(name = "create_time")
-    private Date createTime;
-
-    public Long getIid() {
-        return iid;
+    public CurriculumImg(Long id, String curImg, Long curId) {
+        this.id = id;
+        this.curImg = curImg;
+        this.curId = curId;
     }
 
-    public void setIid(Long iid) {
-        this.iid = iid;
+    public CurriculumImg(String i, Long id) {
+
     }
 
-    public String getImg() {
-        return img;
+    public CurriculumImg() {
     }
 
-    public void setImg(String img) {
-        this.img = img;
+
+
+    public Long getId() {
+        return id;
     }
 
-    public Long getCreateUser() {
-        return createUser;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setCreateUser(Long createUser) {
-        this.createUser = createUser;
+    public String getCurImg() {
+        return curImg;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public void setCurImg(String curImg) {
+        this.curImg = curImg;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public Long getCurId() {
+        return curId;
+    }
+
+    public void setCurId(Long curId) {
+        this.curId = curId;
     }
 }

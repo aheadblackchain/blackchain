@@ -104,7 +104,7 @@
                                 <tr class="odd gradeA" th:each="news:${newsList}">
                                     <td th:text="${news.title}"></td>
                                     <td th:text="${news.newtime}"></td>
-                                    <td th:text="${news.detail}"></td>
+                                    <td th:text="${news.getDetailList()}"></td>
                                     <td>
                                         <img th:src="${news.newimg}" width="300px">
                                     </td>
