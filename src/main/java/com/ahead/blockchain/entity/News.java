@@ -18,6 +18,13 @@ public class News {
     private String newtime;
 
 
+    public String getNewimg() {
+        return newimg;
+    }
+
+    public void setNewimg(String newimg) {
+        this.newimg = newimg;
+    }
 
     @Column(name = "new_img")
     private String newimg;
@@ -35,6 +42,9 @@ public class News {
 
     @Transient
     private List<String> imgList;
+
+    public News() {
+    }
 
     public Long getId() {
         return id;
