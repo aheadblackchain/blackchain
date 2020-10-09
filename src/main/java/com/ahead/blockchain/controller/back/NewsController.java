@@ -37,4 +37,12 @@ public class NewsController {
         newsServlet.delById(id);
         return "redirect:/news/list";
     }
+
+    @GetMapping("/newInfo/{id}")
+    public String newInfo(Model model,@PathVariable("id") Long id) {
+        model.addAttribute("news" , newsServlet.getNewsById(id));
+        model.addAttribute("newsList", newsServlet.findNewsList());
+        return "website/newinfo";
+    }
+
 }

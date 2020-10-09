@@ -4,15 +4,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>新闻 - 区块链学院 - 江西软件职业技术大学</title>
-    <link rel="shortcut icon" href="website/img/favicon.ico">
-    <link rel="stylesheet" href="website/css/bootstrap.css">
-    <link rel="stylesheet" href="website/css/home-style.css">
-    <link rel="stylesheet" href="website/css/fixed.css">
-    <link rel="stylesheet" href="website/css/style.css">
-    <link rel="stylesheet" href="website/css/appwork.css">
-    <link rel="stylesheet" href="website/css/theme-corporate.css" class="theme-settings-theme-css">
-    <link rel="stylesheet" href="website/css/uikit.css">
-    <link rel="stylesheet" href="website/css/portfolio.css">
+    <link rel="shortcut icon" href="/website/img/favicon.ico">
+    <link rel="stylesheet" href="/website/css/bootstrap.css">
+    <link rel="stylesheet" href="/website/css/home-style.css">
+    <link rel="stylesheet" href="/website/css/fixed.css">
+    <link rel="stylesheet" href="/website/css/style.css">
+    <link rel="stylesheet" href="/website/css/appwork.css">
+    <link rel="stylesheet" href="/website/css/theme-corporate.css" class="theme-settings-theme-css">
+    <link rel="stylesheet" href="/website/css/uikit.css">
+    <link rel="stylesheet" href="/website/css/portfolio.css">
 </head>
 <body data-spy="scroll" data-target="#navbarResponsive">
 <iframe src="/top" frameborder="0" scrolling="no" class="iframe-top"></iframe>
@@ -23,29 +23,17 @@
         <div class="col">
             <!-- Article head -->
             <div class="text-center text-success small font-weight-bold text-uppercase mb-3">新闻</div>
-            <h2 class="text-center mb-3">先锋软件与北京八分量签署战略合作协</h2>
-            <div class="text-center text-muted text-tiny mb-4">MAY 25, 2018</div>
+            <h2 class="text-center mb-3" th:text="${news.title}"></h2>
+            <div class="text-center text-muted text-tiny mb-4" th:text="${news.createTime}"></div>
             <hr class="blog-separator border-primary mx-auto mb-5">
 
             <!-- Article content -->
             <div class="blog-article-content font-secondary">
-                <p class="mb-4">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non consequat ipsum, vel consequat magna. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed nisl nunc, dignissim quis leo nec, elementum luctus lectus. Curabitur pharetra lobortis turpis non ultricies. Sed lorem velit, vulputate sed eleifend quis, consectetur eget eros. Suspendisse mauris tellus, luctus eget sapien eget, ultricies venenatis augue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                <p class="mb-4" th:each="newDetail:${news.getDetailList()}">
+                    <span th:text="${newDetail}"></span>
                 </p>
-                <p class="mb-4">
-                    Vestibulum eget facilisis libero. Suspendisse et lacus vel enim sollicitudin iaculis porttitor sit amet dolor. Etiam quam arcu, congue eu mauris iaculis, auctor semper diam. Fusce sapien urna, pharetra in erat eu, ultricies scelerisque purus. Nulla eget leo ante. Sed tincidunt orci urna, at vehicula dui egestas sit amet. Praesent imperdiet cursus odio a egestas. Sed pellentesque diam et libero tincidunt elementum.
-                </p>
-                <p class="mb-4">
-                    Sed sollicitudin nulla sit amet sollicitudin pulvinar. Duis a tortor eget magna efficitur feugiat ac in est. Aliquam ac mauris pretium, viverra odio non, semper mi. Pellentesque in volutpat turpis. Quisque tempor, nisl quis congue rhoncus, lacus purus suscipit purus, vitae sodales mauris arcu a sapien. Curabitur sem elit, vestibulum sit amet lorem sit amet, hendrerit ultrices urna. Donec laoreet erat diam, eget fringilla lacus varius a. Curabitur dapibus metus et est iaculis, id egestas velit placerat. Nunc fermentum pharetra ante, nec laoreet lorem commodo quis. Praesent dictum dolor sed felis molestie molestie.
-                </p>
-                <p class="my-5">
-                    <img src="/website/img/team/team3.png" alt class="img-fluid">
-                </p>
-                <p class="mb-4">
-                    Cras viverra gravida massa, sit amet rutrum tellus scelerisque quis. Nunc nec pharetra metus. Fusce at dapibus nibh, nec maximus diam. Nulla scelerisque dui mi, eu suscipit urna accumsan id. Aliquam vitae justo lobortis, faucibus dolor nec, facilisis tellus. Phasellus porta felis quis risus aliquam dapibus. Duis faucibus dolor eget ex facilisis, vel finibus tortor suscipit. Duis lorem dui, viverra sit amet fermentum cursus, semper vel velit. Aenean lectus ex, tincidunt vitae vehicula sit amet, sollicitudin ac nunc. Aliquam magna eros, convallis non imperdiet eget, venenatis et augue. Vivamus ullamcorper ut dui nec elementum. Mauris pellentesque, nisi ac malesuada laoreet, nisi tellus vehicula lectus, nec sagittis nisl eros ac leo. Nullam rhoncus metus in est ultricies, eget tempus lacus vulputate. Integer consectetur accumsan auctor.
-                </p>
-                <p>
-                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed gravida in tortor eget efficitur. Donec quis leo pretium, feugiat ex tincidunt, hendrerit dolor. Aliquam viverra vitae mauris id hendrerit. Nulla molestie arcu vel arcu sagittis, eu cursus ligula mattis. Sed luctus aliquam tincidunt. Aenean porta mauris sed arcu condimentum sollicitudin. Integer feugiat nunc enim, ut tristique ipsum semper sit amet. Integer a felis nec est efficitur tempus. Aenean ullamcorper suscipit pretium. Quisque blandit vestibulum arcu, et suscipit tellus condimentum sit amet. Suspendisse eros purus, varius sit amet sapien a, consectetur pharetra turpis. Vivamus ac consequat neque. Sed mi dolor, malesuada nec posuere vitae, varius vitae quam.
+                <p class="mb-4" th:each="newimg:${news.getImgList()}">
+                    <img th:src="${newimg}" alt class="img-fluid">
                 </p>
             </div>
             <!-- / Article content -->
@@ -57,44 +45,12 @@
             <div class="ui-bordered p-4 mb-4">
                 <h6 class="small font-weight-bold mb-2">新闻列表</h6>
                 <hr class="blog-separator border-primary">
-                <div class="media mb-3">
+                <div class="media mb-3" th:each="news:${newsList}">
                     <div class="media-body ml-3">
                         <div class="mb-1">
-                            <a href="#" class="link-animated text-dark">首届南昌国际区块链技术应用大会在先锋创客小镇隆重召开</a>
+                            <a th:href="${'/news/newInfo/' + news.id}" class="link-animated text-dark" th:text="${news.title}"></a>
                         </div>
-                        <div class="text-light text-tiny"><a href="#" class="text-light">KENNETH FRAZIER</a> &nbsp;\&nbsp; MAY 21, 2018</div>
-                    </div>
-                </div>
-                <div class="media mb-3">
-                    <div class="media-body ml-3">
-                        <div class="mb-1">
-                            <a href="#" class="link-animated text-dark">中国第一个区块链学院在南昌成立</a>
-                        </div>
-                        <div class="text-light text-tiny"><a href="#" class="text-light">ALICE HAMPTON</a> &nbsp;\&nbsp; MAY 5, 2018</div>
-                    </div>
-                </div>
-                <div class="media mb-3">
-                    <div class="media-body ml-3">
-                        <div class="mb-1">
-                            <a href="#" class="link-animated text-dark">江西副省长陈小平视察江西软件大学</a>
-                        </div>
-                        <div class="text-light text-tiny"><a href="#" class="text-light">ARTHUR DUNCAN</a> &nbsp;\&nbsp; APRIL 19, 2018</div>
-                    </div>
-                </div>
-                <div class="media mb-3">
-                    <div class="media-body ml-3">
-                        <div class="mb-1">
-                            <a href="#" class="link-animated text-dark">江西副省长陈小平视察江西软件大学</a>
-                        </div>
-                        <div class="text-light text-tiny"><a href="#" class="text-light">BELLE ROSS</a> &nbsp;\&nbsp; APRIL 9, 2018</div>
-                    </div>
-                </div>
-                <div class="media">
-                    <div class="media-body ml-3">
-                        <div class="mb-1">
-                            <a href="#" class="link-animated text-dark">Get Around Easily With A New York Limousine Service</a>
-                        </div>
-                        <div class="text-light text-tiny"><a href="#" class="text-light">MAY GIBSON</a> &nbsp;\&nbsp; MARCH 28, 2018</div>
+                        <div class="text-light text-tiny" th:text="${news.createTime}"></div>
                     </div>
                 </div>
             </div>
@@ -105,6 +61,6 @@
 <!--end-->
 <iframe src="/footer" width="100%" frameborder="0" scrolling="no" height="580px"></iframe>
 <!--- Script Source Files -->
-<script src="website/js/jquery.min.js"></script>
+<script src="/website/js/jquery.min.js"></script>
 </body>
 </html>
