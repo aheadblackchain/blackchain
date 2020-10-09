@@ -11,7 +11,6 @@ import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -44,7 +43,12 @@ public class NewsServlet {
     }
 
     public List<News> newsList(){
-        return newsDao.findAll();
+        List<News> news = newsDao.findAll();
+        news.forEach(i -> {
+            i.setNewimg(findImgByNewId(i.getId()).get(0).getNewsImg());
+            i.setDetail(findDetailByNewId(i.getId()).get(0).getNewsDetail());
+        });
+        return news;
     }
 
     public News getNewsById(Long id){
@@ -54,6 +58,10 @@ public class NewsServlet {
         Example<NewsImg> exampleImg = Example.of(new NewsImg(news.getId()));
         news.setImgList(newsImgDao.findAll(exampleImg).stream().map(NewsImg::getNewsImg).collect(Collectors.toList()));
         return news;
+    }
+
+    public List<News> findNewsList(){
+        return newsDao.findNewsLimit();
     }
 
     private List<NewsDetail> findDetailByNewId(Long id){

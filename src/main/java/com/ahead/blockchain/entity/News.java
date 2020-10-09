@@ -30,6 +30,12 @@ public class News {
     @Column(name = "create_time")
     private Date createTime;
 
+//    @Transient
+//    private String newimg;
+
+    @Transient
+    private String detail;
+
     @Transient
     private List<String> detailList;
 
@@ -91,5 +97,21 @@ public class News {
 
     public void setImgList(List<String> imgList) {
         this.imgList = imgList;
+    }
+
+    public String getNewimg() {
+        return newimg;
+    }
+
+    public void setNewimg(String newimg) {
+        this.newimg = newimg;
+    }
+
+    public String getDetail() {
+        return detail;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
     }
 }
