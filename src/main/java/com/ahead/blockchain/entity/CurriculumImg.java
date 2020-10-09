@@ -28,13 +28,15 @@ public class CurriculumImg {
         this.curId = curId;
     }
 
-    public CurriculumImg(String i, Long id) {
-
+    public CurriculumImg(String i, Long curId) {
+        this.curId = curId;
     }
 
     public CurriculumImg() {
     }
 
+    public CurriculumImg(Long id) {
+    }
 
 
     public Long getId() {

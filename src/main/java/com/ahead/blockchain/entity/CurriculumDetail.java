@@ -47,6 +47,10 @@ public class CurriculumDetail {
 
     }
 
+    public CurriculumDetail(Long curId) {
+        this.curId = curId;
+    }
+
 
     public Long getId() {
         return id;
