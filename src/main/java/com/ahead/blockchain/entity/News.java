@@ -14,15 +14,9 @@ public class News {
 
 
     private String title;
+
     @Column(name = "new_time")
     private String newtime;
-
-
-
-    @Column(name = "new_img")
-    private String newimg;
-
-
 
     @Column(name = "create_user")
     private Long createUser;

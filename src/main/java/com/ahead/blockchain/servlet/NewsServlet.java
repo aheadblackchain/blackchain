@@ -45,8 +45,10 @@ public class NewsServlet {
     public List<News> newsList(){
         List<News> news = newsDao.findAll();
         news.forEach(i -> {
-            i.setNewimg(findImgByNewId(i.getId()).get(0).getNewsImg());
-            i.setDetail(findDetailByNewId(i.getId()).get(0).getNewsDetail());
+            List<NewsImg> images = findImgByNewId(i.getId());
+            i.setNewimg(images.size() != 0 ? images.get(0).getNewsImg() : "");
+            List<NewsDetail> details = findDetailByNewId(i.getId());
+            i.setDetail(details.size() != 0 ? details.get(0).getNewsDetail() : "");
         });
         return news;
     }

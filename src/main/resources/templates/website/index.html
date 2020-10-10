@@ -301,13 +301,15 @@
             <div class="col-md-12">
                 <div class="os-animation" data-animation="fadeInUp">
                     <div id="team-slider" class="owl-carousel owl-theme">
-                        <div class="card text-center" th:each="news:${newsList}">
-                            <img class="card-img-top" alt="">
-                            <div class="card-body">
-                                <h4 th:text="${news.title}"></h4>
-                                <h5 th:text="${news.createTime}"></h5>
-                                <p ></p>
-                            </div>
+                        <div th:each="news:${newsList}" >
+                            <a th:href="${'/news/newInfo/'+news.id}" class="card text-center">
+                                <img class="card-img-top" th:src="${news.newimg}" alt="">
+                                <div class="card-body">
+                                    <h4 th:text="${news.title}"></h4>
+                                    <h5 th:text="${news.createTime}"></h5>
+                                    <p th:text="${news.detail}"></p>
+                                </div>
+                            </a>
                         </div>
                     </div>
                     <!--- End Team Slider -->
