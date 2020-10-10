@@ -46,7 +46,7 @@ public class NewsServlet {
         List<News> news = newsDao.findAll();
         news.forEach(i -> {
             List<NewsImg> images = findImgByNewId(i.getId());
-            i.setNewimg(images.size() != 0 ? images.get(0).getNewsImg() : "");
+            i.setNewImg(images.size() != 0 ? images.get(0).getNewsImg() : "");
             List<NewsDetail> details = findDetailByNewId(i.getId());
             i.setDetail(details.size() != 0 ? details.get(0).getNewsDetail() : "");
         });
@@ -55,10 +55,8 @@ public class NewsServlet {
 
     public News getNewsById(Long id){
         News news = newsDao.findById(id).orElseGet(News::new);
-        Example<NewsDetail> exampleDetail = Example.of(new NewsDetail(news.getId()));
-        news.setDetailList(newsDetailDao.findAll(exampleDetail).stream().map(NewsDetail::getNewsDetail).collect(Collectors.toList()));
-        Example<NewsImg> exampleImg = Example.of(new NewsImg(news.getId()));
-        news.setImgList(newsImgDao.findAll(exampleImg).stream().map(NewsImg::getNewsImg).collect(Collectors.toList()));
+        news.setDetailList(newsDetailDao.findAll(Example.of(new NewsDetail(news.getId()))).stream().map(NewsDetail::getNewsDetail).collect(Collectors.toList()));
+        news.setImgList(newsImgDao.findAll(Example.of(new NewsImg(news.getId()))).stream().map(NewsImg::getNewsImg).collect(Collectors.toList()));
         return news;
     }
 

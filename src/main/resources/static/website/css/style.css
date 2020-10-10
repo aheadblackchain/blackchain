@@ -9846,9 +9846,9 @@ textarea.form-control {
     background-color: rgb(74 74 74);
     z-index: 999;
 }
-.big-top{
-    margin-top: 85px;
-}
+/*.big-top{*/
+/*    margin-top: 85px;*/
+/*}*/
 @-webkit-keyframes loader-rotate {
   100% {
     -webkit-transform: rotate(360deg);

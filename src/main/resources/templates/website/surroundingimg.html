@@ -18,20 +18,18 @@
 <iframe src="/top" frameborder="0" scrolling="no" class="iframe-top"></iframe>
 <!---start --->
 <div id="portfolio-thumbnails" class="row big-top">
-    <!-- Add this element to properly relayout grid -->
-<!--    <div class="portfolio-thumbnails-sizer col-sm-6 col-lg-4 position-absolute mb-4"></div>-->
-
+    <div class="portfolio-thumbnails-sizer col-sm-6 col-lg-4 position-absolute mb-4"></div>
     <div class="portfolio-thumbnails-item col-sm-6 col-lg-4 mb-4" data-tag="branding" th:each="surrounding:${surroundingList}">
-        <a href="javascript:;" class="portfolio-thumbnail img-thumbnail">
+        <a href="#" class="portfolio-thumbnail img-thumbnail">
             <span class="img-thumbnail-overlay bg-dark opacity-75"></span>
             <span class="img-thumbnail-content d-flex flex-column justify-content-between text-white p-4">
               <span class="d-block">
-                <span class="d-block text-tiny opacity-75" th:text="${surrounding.surbelong}"></span>
+                <span class="d-block text-tiny opacity-75"></span>
+                <span class="text-large" th:text="${surrounding.surbelong}"></span>
               </span>
               <span class="d-block text-tiny" th:text="${surrounding.surdescribe}"></span>
             </span>
-            <span class="portfolio-thumbnail-img ui-square ui-bg-cover">
-                <img th:src="${surrounding.surimg}">
+            <span class="portfolio-thumbnail-img ui-square ui-bg-cover" th:style="'background-image: url(' + ${surrounding.surimg} + ')'" style="background-image: url(${surrounding.surimg})">
             </span>
         </a>
     </div>

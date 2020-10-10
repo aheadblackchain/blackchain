@@ -2,24 +2,21 @@ package com.ahead.blockchain.entity;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  * @author solfeng
  * @date 2020/9/25 10:36
  */
 @Entity
-@Table(name = "tab_curriculum_system")
+@Table(name = "tab_curriculum")
 public class Curriculum{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "curriculum_image")
-    private String curriculumImage;
+    private String title;
 
     @Column(name = "create_user")
     private Long createUser;
@@ -27,8 +24,14 @@ public class Curriculum{
     @Column(name = "create_time")
     private Date createTime;
 
+    @Column(name = "cur_video")
+    private String curVideo;
+
     @Transient
-    private List<String> detaillList;
+    private String curriculumImage;
+
+    @Transient
+    private List<String> detailList;
 
     @Transient
     private List<String> imgList;
@@ -65,12 +68,12 @@ public class Curriculum{
         this.createTime = createTime;
     }
 
-    public List<String> getDetaillList() {
-        return detaillList;
+    public List<String> getDetailList() {
+        return detailList;
     }
 
-    public void setDetaillList(List<String> detaillList) {
-        this.detaillList = detaillList;
+    public void setDetailList(List<String> detailList) {
+        this.detailList = detailList;
     }
 
     public List<String> getImgList() {
@@ -79,5 +82,21 @@ public class Curriculum{
 
     public void setImgList(List<String> imgList) {
         this.imgList = imgList;
+    }
+
+    public String getCurVideo() {
+        return curVideo;
+    }
+
+    public void setCurVideo(String curVideo) {
+        this.curVideo = curVideo;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

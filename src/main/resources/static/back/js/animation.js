@@ -1,5 +1,20 @@
 $(document).ready(function () {
-    updateTable("/animation/byId/","saveAnimation");
+    $(".btn-update").click(function () {
+        $.post('/animation/byId/' + this.value, null, function (data) {
+            Array.of(...$("form[name='saveAnimation'] input")).forEach(i => {
+                if (i.type != "file" && i.type != "button") {
+                    i.value = data[i.name] != undefined ? data[i.name] : "";
+                }
+            });
+            Array.of(... $("textarea")).forEach(i => i.innerText = data[i.name]);
+            let fileVideo = document.createElement("video");
+            fileVideo.setAttribute("width","300px");
+            fileVideo.setAttribute("height", "200px");
+            fileVideo.setAttribute("controls", "controls");
+            fileVideo.setAttribute("src", data["talentsVideo"]);
+            $("input[id='fileUpload']")[0].parentNode.appendChild(fileVideo);
+        }, "json");
+    });
     insertTable("saveAnimation");
     delTable("/animation/del/");
 

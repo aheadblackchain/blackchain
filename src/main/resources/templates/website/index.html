@@ -229,8 +229,7 @@
             <div class="col-sm-6 col-md-3" th:each="curriculum:${curriculumList}">
                 <div class="os-animation" data-animation="bounceInLeft" data-delay=".2s">
                     <div class="portfolio-item">
-                        <a href="website/img/portfolio/11.png" data-lightbox="example-set"
-                           data-title="My Portfolio Image Description">
+                        <a th:href="${'/curriculumInfo/' + curriculum.id}">
                             <img class="example-image" th:src="${curriculum.curriculumImage}" alt="">
                         </a>
                     </div>
@@ -303,10 +302,10 @@
                     <div id="team-slider" class="owl-carousel owl-theme">
                         <div th:each="news:${newsList}" >
                             <a th:href="${'/news/newInfo/'+news.id}" class="card text-center">
-                                <img class="card-img-top" th:src="${news.newimg}" alt="">
+                                <img class="card-img-top" th:src="${news.newImg}" alt="">
                                 <div class="card-body">
                                     <h4 th:text="${news.title}"></h4>
-                                    <h5 th:text="${news.createTime}"></h5>
+                                    <h5 th:text="${news.newTime}"></h5>
                                     <p th:text="${news.detail}"></p>
                                 </div>
                             </a>

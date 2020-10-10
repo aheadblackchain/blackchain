@@ -1,43 +1,34 @@
 package com.ahead.blockchain.entity;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.List;
 
 /**
  * @author solfeng
  * @date 2020/9/28 20:01
  */
 @Entity
-@Table(name = "tab_curriculum_imginfo")
+@Table(name = "tab_curriculum_img")
 public class CurriculumImg {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     @Column(name = "img")
     private String curImg;
 
-    @Column(name = "cur_id")
+    @Column(name = "curriculum_id")
     private Long curId;
 
-    public CurriculumImg(Long id, String curImg, Long curId) {
-        this.id = id;
+    public CurriculumImg(){}
+
+    public CurriculumImg(Long curId){
+        this.curId = curId;
+    }
+
+    public CurriculumImg(String curImg, Long curId){
         this.curImg = curImg;
         this.curId = curId;
     }
-
-    public CurriculumImg(String i, Long curId) {
-        this.curId = curId;
-    }
-
-    public CurriculumImg() {
-    }
-
-    public CurriculumImg(Long id) {
-    }
-
 
     public Long getId() {
         return id;

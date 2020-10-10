@@ -30,7 +30,7 @@ public class IndexController {
         model.addAttribute("homeList", homeServlet.findAll());
         model.addAttribute("animationList", animationServlet.findAll());
         model.addAttribute("talentList", talentsServlet.findAll());
-        model.addAttribute("curriculumList", curriculumServlet.findAll());
+        model.addAttribute("curriculumList", curriculumServlet.curriculumList());
         model.addAttribute("projectList", projectServlet.findAll());
         model.addAttribute("domainList", domainServlet.domainList());
         model.addAttribute("newsList", newsServlet.newsList());

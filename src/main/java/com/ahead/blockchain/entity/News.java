@@ -16,7 +16,7 @@ public class News {
     private String title;
 
     @Column(name = "new_time")
-    private String newtime;
+    private String newTime;
 
     @Column(name = "create_user")
     private Long createUser;
@@ -24,8 +24,8 @@ public class News {
     @Column(name = "create_time")
     private Date createTime;
 
-//    @Transient
-//    private String newimg;
+    @Transient
+    private String newImg;
 
     @Transient
     private String detail;
@@ -52,12 +52,12 @@ public class News {
         this.title = title;
     }
 
-    public String getNewtime() {
-        return newtime;
+    public String getNewTime() {
+        return newTime;
     }
 
-    public void setNewtime(String newtime) {
-        this.newtime = newtime;
+    public void setNewTime(String newTime) {
+        this.newTime = newTime;
     }
 
 
@@ -93,12 +93,12 @@ public class News {
         this.imgList = imgList;
     }
 
-    public String getNewimg() {
-        return newimg;
+    public String getNewImg() {
+        return newImg;
     }
 
-    public void setNewimg(String newimg) {
-        this.newimg = newimg;
+    public void setNewImg(String newImg) {
+        this.newImg = newImg;
     }
 
     public String getDetail() {

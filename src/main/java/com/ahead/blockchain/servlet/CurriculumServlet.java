@@ -27,10 +27,12 @@ public class CurriculumServlet {
     private CurriculumImgDao curriculumImgDao;
 
 
-    public Curriculum inserOrUpdate(Curriculum curriculum) {
+    public Curriculum insertOrUpdate(Curriculum curriculum) {
         Curriculum CurriculumInfo = curriculumDao.save(curriculum);
-        if (curriculum.getDetaillList() != null) {
-            curriculumDetailDao.saveAll(curriculum.getDetaillList().stream().map(i -> new CurriculumDetail(i, CurriculumInfo.getId())).collect(Collectors.toList()));
+        curriculumDetailDao.deleteInBatch(findDetailByCurId(CurriculumInfo.getId()));
+        curriculumImgDao.deleteInBatch(findImgByCurId(CurriculumInfo.getId()));
+        if (curriculum.getDetailList() != null) {
+            curriculumDetailDao.saveAll(curriculum.getDetailList().stream().map(i -> new CurriculumDetail(i, CurriculumInfo.getId())).collect(Collectors.toList()));
         }
         if (curriculum.getImgList() != null) {
             curriculumImgDao.saveAll(curriculum.getImgList().stream().map(i -> new CurriculumImg(i, CurriculumInfo.getId())).collect(Collectors.toList()));
@@ -46,22 +48,27 @@ public class CurriculumServlet {
     }
 
     public List<Curriculum> curriculumList() {
-        return curriculumDao.findAll();
+        List<Curriculum> curriculumList = curriculumDao.findAll();
+        curriculumList.forEach(i -> {
+            List<CurriculumImg> curriculumImgList = findImgByCurId(i.getId());
+            i.setCurriculumImage(curriculumImgList.size() == 0 ? "" : curriculumImgList.get(0).getCurImg());
+        });
+        return curriculumList;
     }
 
     public Curriculum getCurriculumById(Long id) {
         Curriculum curriculums = curriculumDao.findById(id).orElseGet(Curriculum::new);
         Example<CurriculumDetail> exampleDetail =Example.of(new CurriculumDetail(curriculums.getId()));
-        curriculums.setDetaillList(curriculumDetailDao.findAll(exampleDetail).stream().map(CurriculumDetail::getCurrDatail).collect(Collectors.toList()));
+        curriculums.setDetailList(curriculumDetailDao.findAll(exampleDetail).stream().map(CurriculumDetail::getCurrDatail).collect(Collectors.toList()));
         Example<CurriculumImg> exampleImg =Example.of(new CurriculumImg(curriculums.getId()));
         curriculums.setImgList(curriculumImgDao.findAll(exampleImg).stream().map(CurriculumImg::getCurImg).collect(Collectors.toList()));
 
         return curriculums;
     }
 
-    public List<Curriculum> findAll() {
-        return curriculumDao.findAll();
-    }
+//    public List<Curriculum> findAll() {
+//        return curriculumDao.findAll();
+//    }
     private List<CurriculumDetail> findDetailByCurId(Long id){
         return curriculumDetailDao.findAll(Example.of(new CurriculumDetail(id)));
     }

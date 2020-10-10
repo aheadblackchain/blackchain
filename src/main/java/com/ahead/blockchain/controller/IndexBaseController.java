@@ -16,11 +16,6 @@ public class IndexBaseController {
         return "website/footer";
     }
 
-    @GetMapping("/curriculumInfo")
-    public String curriculumInfo() {
-        return "website/curriculuminfo";
-    }
-
     @GetMapping("/projectInfo")
     public String projectInfo() {
         return "website/projectinfo";

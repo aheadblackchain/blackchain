@@ -33,7 +33,7 @@ public class CurriculumController {
 
     @PostMapping("/saveCurriculum")
     public String saveCurriculum(Curriculum curriculum) {
-        curriculumServlet.inserOrUpdate(curriculum);
+        curriculumServlet.insertOrUpdate(curriculum);
         return "redirect:/curriculumList";
     }
 
@@ -41,6 +41,14 @@ public class CurriculumController {
     public String delCurriculum(@PathVariable("id") Long id) {
         curriculumServlet.delById(id);
         return "redirect:/curriculumList";
+    }
+
+
+
+    @GetMapping("/curriculumInfo/{id}")
+    public String curriculumInfo(Model model,@PathVariable("id") Long id) {
+        model.addAttribute("info", curriculumServlet.getCurriculumById(id));
+        return "website/curriculuminfo";
     }
 
 }
