@@ -65,7 +65,7 @@
                 <hr class="blog-separator border-primary">
                 <div class="media mb-3" th:each="curriculum:${list}">
                     <div class="ui-w-40">
-                        <div class="ui-square ui-bg-cover" style="background-image: url('/website/img/img/1.jpg');"></div>
+                        <div class="ui-square ui-bg-cover" th:style="'background-image: url('+${curriculum.curriculumImage}+');'" style="background-image: url('/website/img/img/1.jpg');"></div>
                     </div>
                     <div class="media-body ml-3">
                         <div class="mb-1">
