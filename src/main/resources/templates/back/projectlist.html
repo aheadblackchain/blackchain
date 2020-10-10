@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="/back/css/colors.css" class="theme-settings-colors-css">
     <link rel="stylesheet" href="/back/css/uikit.css">
     <link rel="stylesheet" href="/back/css/demo.css">
+    <link rel="stylesheet" href="/back/css/dropzone.css">
     <script src="/back/js/layout-helpers.js"></script>
     <script src="/back/js/jquery.min.js"></script>
 </head>
@@ -131,30 +132,38 @@
                             <input type="text" class="form-control" placeholder="标题" name="title" required>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-form-label col-sm-3 text-sm-right">描述</label>
-                        <div class="col-sm-5">
-                            <input type="text" class="form-control" placeholder="描述" name="description" required>
-                        </div>
-                    </div>
-
-
-                    <div class="form-group row">
-                        <label class="col-form-label col-sm-3 text-sm-right">图片</label>
-                        <div class="col-sm-5">
-                            <input type="file" id="fileUpload"
-                                   accept="image/*"
-                                   multiple/>
-                            <input type="hidden" name="proImg">
-                        </div>
-                    </div>
-
-
 
                     <div class="form-group row">
                         <label class="col-form-label col-sm-3 text-sm-right">科技</label>
                         <div class="col-sm-5">
                             <input type="text" class="form-control" placeholder="科技" name="technology">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label class="col-form-label col-sm-3 text-sm-right">详情</label>
+                        <div class="col-sm-5">
+                            <input type="button" id="addDetail" value="添加段落" class="btn btn-primary"/>
+                        </div>
+                    </div>
+                    <hr/>
+                    <div class="form-group row" width="60px">
+                        <label class="col-form-label col-sm-8 text-sm-right">
+                            <h3 class="card-header" id="addImg">
+                                点击上传图片
+                            </h3>
+                        </label>
+                        <div class="col-sm-12">
+                            <div class="card mb-4">
+                                <div class="card-body" id="old-img">
+                                    <div class="dropzone needsclick" id="dropzone-demo">
+                                        <div class="fallback">
+                                            <input name="file" type="file" id="fileUpload" multiple>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -175,10 +184,13 @@
 <script src="/back/js/sidenav.js"></script>
 <script src="/back/js/perfect-scrollbar.js"></script>
 <script src="/back/js/bootbox.js"></script>
+<script src="/back/js/businessmany.js"></script>
+<script src="/back/js/dropzone.js"></script>
+<script src="/back/js/flow.js"></script>
+<script src="/back/js/forms_file-upload.js"></script>
 <!-- Libs -->
 <!-- Demo -->
 <script src="/back/js/demo.js"></script>
-<script src="/back/js/business.js"></script>
 <script src="/back/js/project.js"></script>
 </body>
 

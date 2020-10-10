@@ -3,30 +3,31 @@ package com.ahead.blockchain.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tab_project_description")
-public class ProjectDescription {
+@Table(name = "tab_project_detail")
+public class ProjectDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "project_description")
-    private String projectDetail;
+    private String detail;
 
     @Column(name = "project_id")
     private Long projectId;
 
-    public ProjectDescription(){
+    public ProjectDetail(){
 
     }
 
-    public ProjectDescription(Long projectId){
+    public ProjectDetail(String detail, Long projectId){
+        this.detail = detail;
         this.projectId = projectId;
     }
 
-    public ProjectDescription(String projectDetail, Long projectId){
-        this.projectDetail = projectDetail;
+    public ProjectDetail(Long projectId){
         this.projectId = projectId;
     }
+
+
 
     public Long getId() {
         return id;
@@ -36,13 +37,6 @@ public class ProjectDescription {
         this.id = id;
     }
 
-    public String getProjectDescription() {
-        return projectDetail;
-    }
-
-    public void setProjectDescription(String projectDetail) {
-        this.projectDetail = projectDetail;
-    }
 
     public Long getNewsId() {
         return projectId;
@@ -50,5 +44,13 @@ public class ProjectDescription {
 
     public void setNewsId(Long projectId) {
         this.projectId = projectId;
+    }
+
+    public String getDetail() {
+        return detail;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
     }
 }

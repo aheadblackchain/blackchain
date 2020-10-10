@@ -16,17 +16,6 @@ public class IndexBaseController {
         return "website/footer";
     }
 
-    @GetMapping("/projectInfo")
-    public String projectInfo() {
-        return "website/projectinfo";
-    }
-
-    @GetMapping("/newInfo")
-    public String newInfo() {
-        return "website/newinfo";
-    }
-
-
     @GetMapping("/blackChainRecommendVideo")
     public String blackChainRecommend() {
         return "website/blackchainrecommendvideo";

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author solfeng
@@ -15,24 +16,24 @@ public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @Column(nullable = false)
     private String title;
-    @Column(name = "description")
-    private String description;
-    @Column(name = "pro_img")
-    private String proImg;
     @Column(name = "technology")
     private String technology;
-
-
     @Column(name = "create_time")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
-
     @Column(name = "create_user")
     private Integer createUser;
+    @Transient
+    private String description;
+    @Transient
+    private String proImg;
+    @Transient
+    private List<String> detailList;
 
+    @Transient
+    private List<String> imgList;
     public Long getId() {
         return id;
     }
@@ -87,5 +88,21 @@ public class Project {
 
     public void setCreateUser(Integer createUser) {
         this.createUser = createUser;
+    }
+
+    public List<String> getDetailList() {
+        return detailList;
+    }
+
+    public void setDetailList(List<String> detailList) {
+        this.detailList = detailList;
+    }
+
+    public List<String> getImgList() {
+        return imgList;
+    }
+
+    public void setImgList(List<String> imgList) {
+        this.imgList = imgList;
     }
 }

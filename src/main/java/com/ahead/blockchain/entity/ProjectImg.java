@@ -9,7 +9,7 @@ public class ProjectImg {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "project_img")
+    @Column(name = "img")
     private String projectImg;
 
     @Column(name = "project_id")

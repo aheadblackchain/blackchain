@@ -17,13 +17,13 @@ public class ProjectController {
     @Autowired
     private ProjectServlet projectServlet;
 
-    @GetMapping("/List")
+    @GetMapping("/list")
     public String projectList(Model model) {
-        model.addAttribute("projectList1", projectServlet.projectList());
+        model.addAttribute("projectList1", projectServlet.findAll());
         return "back/projectlist";
     }
 
-    @PostMapping("/ById/{id}")
+    @PostMapping("/byId/{id}")
     @ResponseBody
     public Project getProjectById(@PathVariable("id") Long id) {
         return projectServlet.getProjectById(id);
@@ -31,13 +31,19 @@ public class ProjectController {
 
     @PostMapping("/save")
     public String saveCurriculum(Project project) {
-        projectServlet.inserOrUpdate(project);
-        return "redirect:/project/List";
+        projectServlet.insertOrUpdate(project);
+        return "redirect:/project/list";
     }
 
     @GetMapping("/del/{id}")
     public String delProject(@PathVariable("id") Long id) {
         projectServlet.deById(id);
-        return "redirect:/project/List";
+        return "redirect:/project/list";
+    }
+
+    @GetMapping("/info/{id}")
+    public String projectInfo(Model model, @PathVariable("id") Long id) {
+        model.addAttribute("info", projectServlet.getProjectById(id));
+        return "website/projectinfo";
     }
 }

@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    updateTable("/project/ById/","saveProject");
+    updateTable("/project/byId/","saveProject");
     insertTable("saveProject");
     delTable("/project/del/");
 
