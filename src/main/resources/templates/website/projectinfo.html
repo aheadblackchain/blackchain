@@ -43,75 +43,18 @@
 
         <!-- Side content -->
         <div class="col-lg-4 pl-xl-5">
-
-            <div class="bg-lighter p-4 mb-4">
-                <h6 class="small font-weight-bold mb-2">课程体系</h6>
-                <hr class="blog-separator border-primary">
-                <p class="text-muted">
-                    请输入您的电子邮件地址以获取此课程，并通过电子邮件接收课程的通知。
-                </p>
-                <div class="form-group">
-                    <input type="text" class="form-control rounded-0" placeholder="Enter your email address">
-                </div>
-                <button type="button" class="btn btn-primary btn-block rounded-0">Subscribe</button>
-            </div>
-
             <div class="ui-bordered p-4 mb-4">
-                <h6 class="small font-weight-bold mb-2">课程列表</h6>
+                <h6 class="small font-weight-bold mb-2">项目列表</h6>
                 <hr class="blog-separator border-primary">
-                <div class="media mb-3">
+                <div class="media mb-3" th:each="project:${list}">
                     <div class="ui-w-40">
-                        <div class="ui-square ui-bg-cover" style="background-image: url('/website/img/img/1.jpg');"></div>
+                        <div class="ui-square ui-bg-cover" th:style="'background-image: url('+${project.proImg}+');'" style="background-image: url('/website/img/img/1.jpg');"></div>
                     </div>
                     <div class="media-body ml-3">
                         <div class="mb-1">
-                            <a href="#" class="link-animated text-dark">Comment On The Importance Of Human Life</a>
+                            <a href="#" class="link-animated text-dark" th:text="${project.title}"></a>
                         </div>
-                        <div class="text-light text-tiny"><a href="#" class="text-light">KENNETH FRAZIER</a> &nbsp;\&nbsp; MAY 21, 2018</div>
-                    </div>
-                </div>
-                <div class="media mb-3">
-                    <div class="ui-w-40">
-                        <div class="ui-square ui-bg-cover" style="background-image: url('/website/img/img/1.jpg');"></div>
-                    </div>
-                    <div class="media-body ml-3">
-                        <div class="mb-1">
-                            <a href="#" class="link-animated text-dark">Les Houches The Hidden Gem Of The Chamonix Valley</a>
-                        </div>
-                        <div class="text-light text-tiny"><a href="#" class="text-light">ALICE HAMPTON</a> &nbsp;\&nbsp; MAY 5, 2018</div>
-                    </div>
-                </div>
-                <div class="media mb-3">
-                    <div class="ui-w-40">
-                        <div class="ui-square ui-bg-cover" style="background-image: url('/website/img/img/1.jpg');"></div>
-                    </div>
-                    <div class="media-body ml-3">
-                        <div class="mb-1">
-                            <a href="#" class="link-animated text-dark">Cheap Romantic Vacations</a>
-                        </div>
-                        <div class="text-light text-tiny"><a href="#" class="text-light">ARTHUR DUNCAN</a> &nbsp;\&nbsp; APRIL 19, 2018</div>
-                    </div>
-                </div>
-                <div class="media mb-3">
-                    <div class="ui-w-40">
-                        <div class="ui-square ui-bg-cover" style="background-image: url('/website/img/img/1.jpg');"></div>
-                    </div>
-                    <div class="media-body ml-3">
-                        <div class="mb-1">
-                            <a href="#" class="link-animated text-dark">Big Savings On Gas While You Travel</a>
-                        </div>
-                        <div class="text-light text-tiny"><a href="#" class="text-light">BELLE ROSS</a> &nbsp;\&nbsp; APRIL 9, 2018</div>
-                    </div>
-                </div>
-                <div class="media">
-                    <div class="ui-w-40">
-                        <div class="ui-square ui-bg-cover" style="background-image: url('/website/img/img/1.jpg');"></div>
-                    </div>
-                    <div class="media-body ml-3">
-                        <div class="mb-1">
-                            <a href="#" class="link-animated text-dark">Get Around Easily With A New York Limousine Service</a>
-                        </div>
-                        <div class="text-light text-tiny"><a href="#" class="text-light">MAY GIBSON</a> &nbsp;\&nbsp; MARCH 28, 2018</div>
+                        <div class="text-light text-tiny"><span th:text="${project.technology}"></span> &nbsp;\&nbsp; <span th:text="${project.createTime}"></span></div>
                     </div>
                 </div>
             </div>

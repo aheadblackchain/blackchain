@@ -49,11 +49,7 @@ public class CurriculumServlet {
 
     public List<Curriculum> curriculumList() {
         List<Curriculum> curriculumList = curriculumDao.findAll();
-        curriculumList.forEach(i -> {
-            List<CurriculumImg> curriculumImgList = findImgByCurId(i.getId());
-            i.setCurriculumImage(curriculumImgList.size() == 0 ? "" : curriculumImgList.get(0).getCurImg());
-        });
-        return curriculumList;
+        return setImgAndDetail(curriculumList);
     }
 
     public Curriculum getCurriculumById(Long id) {
@@ -62,13 +58,14 @@ public class CurriculumServlet {
         curriculums.setDetailList(curriculumDetailDao.findAll(exampleDetail).stream().map(CurriculumDetail::getCurrDatail).collect(Collectors.toList()));
         Example<CurriculumImg> exampleImg =Example.of(new CurriculumImg(curriculums.getId()));
         curriculums.setImgList(curriculumImgDao.findAll(exampleImg).stream().map(CurriculumImg::getCurImg).collect(Collectors.toList()));
-
         return curriculums;
     }
 
-//    public List<Curriculum> findAll() {
-//        return curriculumDao.findAll();
-//    }
+    public List<Curriculum> findCurriculumLimit() {
+        List<Curriculum> list = curriculumDao.findCurriculumLimit();
+        return setImgAndDetail(list);
+    }
+
     private List<CurriculumDetail> findDetailByCurId(Long id){
         return curriculumDetailDao.findAll(Example.of(new CurriculumDetail(id)));
     }
@@ -76,4 +73,11 @@ public class CurriculumServlet {
         return curriculumImgDao.findAll(Example.of(new CurriculumImg(id)));
     }
 
+    public List<Curriculum> setImgAndDetail(List<Curriculum> list){
+        list.forEach(i -> {
+            List<CurriculumImg> curriculumImgList = findImgByCurId(i.getId());
+            i.setCurriculumImage(curriculumImgList.size() == 0 ? "" : curriculumImgList.get(0).getCurImg());
+        });
+        return list;
+    }
 }

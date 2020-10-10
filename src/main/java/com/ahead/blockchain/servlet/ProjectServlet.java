@@ -52,13 +52,12 @@ public class ProjectServlet {
     }
     public List<Project> findAll(){
         List<Project> list = projectDao.findAll();
-        list.forEach(i -> {
-            List<ProjectImg> images = findImgByProjectId(i.getId());
-            i.setProImg(images.size() != 0 ? images.get(0).getProjectImg() : "");
-            List<ProjectDetail> details = findDetailByProjectId(i.getId());
-            i.setDescription(details.size() != 0 ? details.get(0).getDetail() : "");
-        });
-        return list;
+        return setImgAndDetail(list);
+    }
+
+    public List<Project> findProjectList(){
+        List<Project> list = projectDao.findProjectLimit();
+        return setImgAndDetail(list);
     }
 
     private List<ProjectDetail> findDetailByProjectId(Long id){
@@ -66,6 +65,16 @@ public class ProjectServlet {
     }
     private List<ProjectImg> findImgByProjectId(Long id){
         return projectImgDao.findAll(Example.of(new ProjectImg(id)));
+    }
+
+    private List<Project> setImgAndDetail(List<Project> list){
+        list.forEach(i -> {
+            List<ProjectImg> images = findImgByProjectId(i.getId());
+            i.setProImg(images.size() != 0 ? images.get(0).getProjectImg() : "");
+            List<ProjectDetail> details = findDetailByProjectId(i.getId());
+            i.setDescription(details.size() != 0 ? details.get(0).getDetail() : "");
+        });
+        return list;
     }
 
 }

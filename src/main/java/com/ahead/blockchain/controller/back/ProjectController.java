@@ -44,6 +44,7 @@ public class ProjectController {
     @GetMapping("/info/{id}")
     public String projectInfo(Model model, @PathVariable("id") Long id) {
         model.addAttribute("info", projectServlet.getProjectById(id));
+        model.addAttribute("list", projectServlet.findProjectList());
         return "website/projectinfo";
     }
 }

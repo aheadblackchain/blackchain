@@ -48,6 +48,7 @@ public class CurriculumController {
     @GetMapping("/curriculumInfo/{id}")
     public String curriculumInfo(Model model,@PathVariable("id") Long id) {
         model.addAttribute("info", curriculumServlet.getCurriculumById(id));
+        model.addAttribute("list", curriculumServlet.findCurriculumLimit());
         return "website/curriculuminfo";
     }
 
