@@ -7,6 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.util.Set;
+
 @Controller
 @RequestMapping("/news")
 public class NewsController {
@@ -39,7 +43,13 @@ public class NewsController {
     }
 
     @GetMapping("/newInfo/{id}")
-    public String newInfo(Model model,@PathVariable("id") Long id) {
+    public String newInfo(HttpServletRequest request, Model model, @PathVariable("id") Long id) {
+        HttpSession session = request.getSession();
+        Set<String> readSession = (Set<String>) session.getServletContext().getAttribute("readNum");
+        if(readSession != null && !readSession.contains(session.getId())){
+            readSession.add(session.getId());
+            newsServlet.updateReadNum(id);
+        }
         model.addAttribute("news" , newsServlet.getNewsById(id));
         model.addAttribute("newsList", newsServlet.findNewsList());
         return "website/newinfo";

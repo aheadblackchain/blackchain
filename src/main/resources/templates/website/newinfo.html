@@ -24,7 +24,11 @@
             <!-- Article head -->
             <div class="text-center text-success small font-weight-bold text-uppercase mb-3">新闻</div>
             <h2 class="text-center mb-3" th:text="${news.title}"></h2>
-            <div class="text-center text-muted text-tiny mb-4" th:text="${news.createTime}"></div>
+            <div class="text-center text-muted text-tiny mb-4">
+                阅读量：<span th:text="${news.readNum}"></span>
+                &nbsp; \ &nbsp;
+                <span th:text="${news.newTime}"></span>
+            </div>
             <hr class="blog-separator border-primary mx-auto mb-5">
 
             <!-- Article content -->
@@ -50,7 +54,7 @@
                         <div class="mb-1">
                             <a th:href="${'/news/newInfo/' + news.id}" class="link-animated text-dark" th:text="${news.title}"></a>
                         </div>
-                        <div class="text-light text-tiny" th:text="${news.createTime}"></div>
+                        <div class="text-light text-tiny" th:text="${news.newTime}"></div>
                     </div>
                 </div>
             </div>

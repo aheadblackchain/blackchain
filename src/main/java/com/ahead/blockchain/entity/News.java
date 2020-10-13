@@ -15,6 +15,9 @@ public class News {
 
     private String title;
 
+    @Column(name = "read_num")
+    private Integer readNum;
+
     @Column(name = "new_time")
     private String newTime;
 
@@ -107,5 +110,13 @@ public class News {
 
     public void setDetail(String detail) {
         this.detail = detail;
+    }
+
+    public Integer getReadNum() {
+        return readNum;
+    }
+
+    public void setReadNum(Integer readNum) {
+        this.readNum = readNum;
     }
 }

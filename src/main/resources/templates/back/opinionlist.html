@@ -3,7 +3,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en" class="default-style">
 
 <head>
-    <title>区块链新闻介绍</title>
+    <title>建议箱</title>
 
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1">
@@ -21,7 +21,8 @@
     <link rel="stylesheet" href="/back/css/colors.css" class="theme-settings-colors-css">
     <link rel="stylesheet" href="/back/css/uikit.css">
     <link rel="stylesheet" href="/back/css/demo.css">
-    <link rel="stylesheet" href="/back/css/dropzone.css">
+    <script src="/back/js/layout-helpers.js"></script>
+    <script src="/back/js/jquery.min.js"></script>
 </head>
 
 <body>
@@ -71,6 +72,7 @@
                         <i class="ion ion-md-menu text-large align-middle"></i>
                     </a>
                 </div>
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#layout-navbar-collapse">
                     <span class="navbar-toggler-icon"></span>
@@ -93,28 +95,20 @@
                             <table class="datatables-demo table table-striped table-bordered">
                                 <thead>
                                 <tr>
-                                    <th>标题</th>
-                                    <th>新闻时间</th>
+                                    <th>姓名</th>
+                                    <th>联系方式</th>
+                                    <th>建议</th>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr class="odd gradeA" th:each="news:${newsList}">
-                                    <td th:text="${news.title}"></td>
-                                    <td th:text="${news.newTime}"></td>
-
-                                    <td ></td>
+                                <tr class="odd gradeA" th:each="opinion:${list}">
+                                    <td th:text="${opinion.name}"></td>
+                                    <td th:text="${opinion.phone}"></td>
+                                    <td width="300px" th:text="${opinion.message}"></td>
                                     <td>
-
-                                    </td>
-
-                                    <td>
-                                        <button class="btn btn-warning btn-update" th:value="${news.id}"
-                                                data-toggle="modal" data-target="#modals-fill-in">修改
-                                        </button>
-                                        <button id="bootbox-confirm" class="btn btn-danger btn-delete"
-                                                th:value="${news.id}">
-                                            删除
+                                        <button class="btn btn-warning btn-info" th:value="${opinion.id}"
+                                                data-toggle="modal" data-target="#modals-fill-in">详情
                                         </button>
                                     </td>
                                 </tr>
@@ -140,53 +134,27 @@
         <div class="modal-content">
             <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">×</button>
             <div class="modal-body text-white">
-                <p class="text-large font-weight-light mb-3">修改</p>
+                <p class="text-large font-weight-light mb-3">详情</p>
                 <hr/>
-                <form name="saveNews" method="post" action="/news/save">
+                <form name="opinionForm">
                     <input type="hidden" name="id">
                     <div class="form-group row">
-                        <label class="col-form-label col-sm-3 text-sm-right">标题</label>
+                        <label class="col-form-label col-sm-3 text-sm-right">姓名</label>
                         <div class="col-sm-5">
-                            <input type="text" class="form-control" placeholder="标题" name="title" required>
+                            <input type="text" readonly class="form-control" placeholder="姓名" name="name" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-sm-3 text-sm-right">联系方式</label>
+                        <div class="col-sm-5">
+                            <input type="text" readonly class="form-control" placeholder="联系方式" name="phone" required>
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-form-label col-sm-3 text-sm-right">新闻时间</label>
+                        <label class="col-form-label col-sm-3 text-sm-right">建议</label>
                         <div class="col-sm-5">
-                            <input type="date" class="form-control" placeholder="新闻时间" name="newTime" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label class="col-form-label col-sm-3 text-sm-right">详情</label>
-                        <div class="col-sm-5">
-                            <input type="button" id="addDetail" value="添加段落" class="btn btn-primary"/>
-                        </div>
-                    </div>
-                    <hr/>
-                    <div class="form-group row" width="60px">
-                        <label class="col-form-label col-sm-8 text-sm-right">
-                            <h3 class="card-header" id="addImg">
-                                点击上传图片
-                            </h3>
-                        </label>
-                        <div class="col-sm-12">
-                            <div class="card mb-4">
-                                <div class="card-body" id="old-img">
-                                    <div class="dropzone needsclick" id="dropzone-demo">
-                                        <div class="fallback">
-                                            <input name="file" type="file" id="fileUpload" multiple>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <div class="col-sm-7 ml-sm-auto">
-                            <button type="submit" class="btn btn-primary">save</button>
+                            <textarea class="form-control" name="message" rows="10" readonly></textarea>
                         </div>
                     </div>
                 </form>
@@ -196,22 +164,16 @@
 </div>
 <!--end update user -->
 <!-- Core scripts -->
-
-<script src="/back/js/layout-helpers.js"></script>
-<script src="/back/js/jquery.min.js"></script>
 <script src="/back/js/popper.js"></script>
 <script src="/back/js/bootstrap.js"></script>
 <script src="/back/js/sidenav.js"></script>
 <script src="/back/js/perfect-scrollbar.js"></script>
 <script src="/back/js/bootbox.js"></script>
-<script src="/back/js/businessmany.js"></script>
-<script src="/back/js/dropzone.js"></script>
-<script src="/back/js/flow.js"></script>
-<script src="/back/js/forms_file-upload.js"></script>
 <!-- Libs -->
 <!-- Demo -->
 <script src="/back/js/demo.js"></script>
-<script src="/back/js/news.js"></script>
+<script src="/back/js/business.js"></script>
+<script src="/back/js/opinion.js"></script>
 </body>
 
 </html>

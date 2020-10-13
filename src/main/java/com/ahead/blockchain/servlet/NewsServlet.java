@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -58,6 +59,11 @@ public class NewsServlet {
         news.setDetailList(newsDetailDao.findAll(Example.of(new NewsDetail(news.getId()))).stream().map(NewsDetail::getNewsDetail).collect(Collectors.toList()));
         news.setImgList(newsImgDao.findAll(Example.of(new NewsImg(news.getId()))).stream().map(NewsImg::getNewsImg).collect(Collectors.toList()));
         return news;
+    }
+
+    @Transactional
+    public void updateReadNum(Long id){
+        newsDao.updateReadNum(id);
     }
 
     public List<News> findNewsList(){

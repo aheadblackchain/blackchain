@@ -28,7 +28,7 @@
             <div class="col-md-7">
                 <h3>联系我们</h3>
 
-                <form id="contact-form" method="post" action="contact.php">
+                <form id="contact-form" method="post" action="/opinion/save" target="_parent">
 
                     <div class="messages"></div>
                     <div class="controls">
@@ -39,7 +39,7 @@
                         </div>
 
                         <div class="form-group">
-                            <input id="form_email" type="email" name="email" class="form-control"
+                            <input id="form_email" type="tel" name="phone" class="form-control"
                                    placeholder="你的联系方式." required="required">
                         </div>
 
@@ -48,7 +48,7 @@
                                           placeholder="您的建议." rows="4" required="required"></textarea>
                         </div>
 
-                        <input type="submit" class="btn btn-outline-light btn-sm" value="发送">
+                        <input type="button" id="opinionSubmit" class="btn btn-outline-light btn-sm" value="发送">
 
                     </div>
 
@@ -66,5 +66,7 @@
 
 </div>
 <!--- End Contact Section -->
+<script src="/website/js/jquery-3.3.1.min.js"></script>
+<script src="/website/js/footer.js"></script>
 </body>
 </html>
